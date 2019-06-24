@@ -1,4 +1,4 @@
-package ru.victormalkov.karramba
+package ru.victormalkov.karramba.model
 
 // стена - неподвижная, неизменяемая
 abstract class Wall: CellEffect {
@@ -16,21 +16,21 @@ abstract class Wall: CellEffect {
 
 
 // просто неподвижная непрозрачная стена
-class StaticWall: Wall() {
+object StaticWall: Wall() {
     override val decorator: Any
         get() = TODO("not implemented: return static wall texture") //To change initializer of created properties use File | Settings | File Templates.
 
 }
 
 // прозрачная стена, например край карты
-class TransparentWall: Wall() {
+object TransparentWall: Wall() {
     override val decorator: Any
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
 }
 
 // неподвижная стена, через которую могут падать камни
-class ThruWall: Wall() {
+object ThruWall: Wall() {
     override val decorator: Any
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 }

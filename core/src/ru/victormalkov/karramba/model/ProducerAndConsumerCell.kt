@@ -1,6 +1,8 @@
-package ru.victormalkov.karramba
+package ru.victormalkov.karramba.model
 
-class ProducerCell: CellEffect {
+import ru.victormalkov.karramba.model.CellEffect
+
+object ProducerCell: CellEffect {
     override val stackable: Boolean
         get() = true // не изменяет стакуемость
 
@@ -17,7 +19,7 @@ class ProducerCell: CellEffect {
 
 }
 
-class ConsumerCell: CellEffect {
+object ConsumerCell: CellEffect {
     override val stackable: Boolean
         get() = true // не изменяет стакуемость
 

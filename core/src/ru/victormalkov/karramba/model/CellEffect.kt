@@ -1,4 +1,4 @@
-package ru.victormalkov.karramba
+package ru.victormalkov.karramba.model
 
 interface CellEffect {
     val stackable: Boolean

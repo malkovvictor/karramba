@@ -1,4 +1,4 @@
-package ru.victormalkov.karramba
+package ru.victormalkov.karramba.model
 
 interface GemEffect {
     val stackable: Boolean
