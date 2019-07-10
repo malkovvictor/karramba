@@ -29,6 +29,8 @@ class KarrambaMain : ApplicationAdapter() {
         stage = Stage()
         Gdx.input.inputProcessor = stage
 
+
+
         //renderer.create()
     }
 
