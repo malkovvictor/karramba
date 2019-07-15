@@ -52,9 +52,6 @@ class KarrambaMain : ApplicationAdapter() {
     }
 
     private fun load() {
-        manager.load("karramba.png", Texture::class.java)
-        manager.load("karramba.atlas", TextureAtlas::class.java)
-        manager.load("Blackmoor_Tides_Loop.ogg", Music::class.java)
     }
 
     override fun resume() {
