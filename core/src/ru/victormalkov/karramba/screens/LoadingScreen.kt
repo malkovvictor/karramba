@@ -33,9 +33,10 @@ class LoadingScreen(private val game: MyGame) : ScreenAdapter() {
         font.draw(game.batch, String.format("%.0f", 100 * game.assetManager.progress), 10f, 100f)
         game.batch.end()
         if (game.assetManager.update()) {
+            game.finishLoading()
             game.screen = FramestoryScreen(game)
             println("loading finished")
-            println(game.assetManager.loadedAssets)
+            println("${game.assetManager.loadedAssets} assets loaded")
         }
     }
 }

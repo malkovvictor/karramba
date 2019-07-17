@@ -7,11 +7,12 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.scenes.scene2d.Actor
+import com.badlogic.gdx.scenes.scene2d.Group
 import ru.victormalkov.karramba.model.Board
 import ru.victormalkov.karramba.model.StaticWall
 import ru.victormalkov.karramba.model.TransparentWall
 
-class BoardActor(val board: Board): Actor() {
+class BoardActor(val board: Board): Group() {
     private var shaper: ShapeRenderer = ShapeRenderer()
     internal var cellTextures: MutableMap<String, TextureRegion>
     private var texture: Texture

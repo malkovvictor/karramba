@@ -7,19 +7,19 @@ import ru.victormalkov.karramba.model.Cell
 import ru.victormalkov.karramba.model.StaticWall
 import ru.victormalkov.karramba.model.TransparentWall
 
-class CellActor(val myCell: Cell, val x: Int, val y: Int, val mainRenderer: BoardRenderer): Actor() {
+class CellActor(val myCell: Cell, val x: Int, val y: Int, val game: MyGame): Actor() {
     override fun draw(batch: Batch?, parentAlpha: Float) {
         var tr: TextureRegion? = null
         when (myCell.effect) {
             StaticWall -> {
-                tr = mainRenderer.cellTextures["wall1"]
+                tr = game.cellTextures["wall1"]
             }
             TransparentWall -> {}
             else -> {
                 // эффект отсутствует
                 //tr = cellTextures
                 if (myCell.gem != null) {
-                    tr = mainRenderer.cellTextures[myCell.gem!!.name]
+                    tr = game.cellTextures[myCell.gem!!.name]
                 } else {
                     //tr = cellTextures["gem0"]
                 }

@@ -12,7 +12,7 @@ import ru.victormalkov.karramba.model.Board
 
 class KarrambaMain : ApplicationAdapter() {
 //    private lateinit var renderer: BoardRenderer
-    private lateinit var controller: GameController
+//    private lateinit var controller: GameController
 
     private lateinit var stage: Stage
 
@@ -22,9 +22,9 @@ class KarrambaMain : ApplicationAdapter() {
         load()
 
 
-        controller = GameController()
+       // controller = GameController()
         //renderer = BoardRenderer(controller)
-        controller.create()
+    //    controller.create()
 
         stage = Stage()
         Gdx.input.inputProcessor = stage

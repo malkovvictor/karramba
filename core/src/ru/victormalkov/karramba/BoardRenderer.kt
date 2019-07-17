@@ -17,14 +17,8 @@ import com.badlogic.gdx.utils.viewport.StretchViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 
 
-const val GEM_SIZE = 24f
-const val WORLD_WIDTH = GEM_SIZE * 8
-const val WORLD_HEIGHT = GEM_SIZE * 10
 
-
-const val ORDINARY_GEM_TYPES = 5
-
-class BoardRenderer(var controller: GameController) {
+class BoardRenderer123(/*var controller: GameController*/) {
     private lateinit var batch: SpriteBatch
     private lateinit var texture: Texture
     private lateinit var atlas: TextureAtlas
@@ -48,7 +42,7 @@ class BoardRenderer(var controller: GameController) {
     }
 
     fun render() {
-        val board = controller.board
+        val board = null //= controller.board
         if (board == null) {
             return
         }
@@ -58,6 +52,7 @@ class BoardRenderer(var controller: GameController) {
 //        shaper.color = Color.FOREST
 //        shaper.rect(0f,  0f, board.width * GEM_SIZE, board.height * GEM_SIZE)
 //        shaper.end()
+     /*
         batch.projectionMatrix = viewport.camera.combined
         batch.begin()
         for (x in 0 until board!!.width) {
@@ -82,7 +77,7 @@ class BoardRenderer(var controller: GameController) {
                 if (tr != null) batch.draw(tr, GEM_SIZE * x, height - GEM_SIZE * (y + 1))
             }
         }
-        batch.end()
+        batch.end()*/
     }
 
 /*    fun resize(width: Int, height: Int) {

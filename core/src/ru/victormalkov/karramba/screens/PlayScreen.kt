@@ -1,38 +1,46 @@
 package ru.victormalkov.karramba.screens
 
-import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
-import com.badlogic.gdx.graphics.GL20
-import com.badlogic.gdx.graphics.g2d.TextureAtlas
-import com.badlogic.gdx.graphics.g2d.TextureRegion
+import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
-import ru.victormalkov.karramba.MyGame
-import ru.victormalkov.karramba.model.StaticWall
-import ru.victormalkov.karramba.model.TransparentWall
-
-const val GEM_SIZE = 24f
-const val WORLD_WIDTH = GEM_SIZE * 8
-const val WORLD_HEIGHT = GEM_SIZE * 10
-
-const val ORDINARY_GEM_TYPES = 5
+import ru.victormalkov.karramba.*
+import java.lang.Exception
 
 class PlayScreen(val game: MyGame) : ScreenAdapter() {
     private var viewport: Viewport
-    private var cellTextures: MutableMap<String, TextureRegion>
+    private var stage: Stage
 
     init {
-        cellTextures = HashMap()
-        game.assetManager.get("karramba.atlas", TextureAtlas::class.java).regions.forEach {
-            cellTextures[it.name] = it
+        if (game.board == null) {
+            throw Exception("board is null")
         }
+
         viewport = FitViewport(WORLD_WIDTH, WORLD_HEIGHT)
         viewport.apply(true)
 
+        stage = Stage(viewport)
+
+        var boardActor = BoardActor(game.board!!)
+        for (x in 0 until game.board!!.width) {
+            for (y in 0 until game.board!!.height) {
+                var cellActor = CellActor(game.board!!.cells[x][y], x, y, game)
+                boardActor.addActor(cellActor)
+            }
+        }
+
+
+        stage.addActor(boardActor)
+    }
+
+    override fun show() {
+        super.show()
     }
 
     override fun render(delta: Float) {
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
+        // todo переписать в stage и actor
+
+/*        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         viewport.camera.update()
         if (game.board == null) {
             return
@@ -45,14 +53,14 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
                 var tr: TextureRegion? = null
                 when (game.board!!.cells[x][y].effect) {
                     StaticWall -> {
-                        tr = cellTextures["wall1"]
+                        tr = game.cellTextures["wall1"]
                     }
                     TransparentWall -> {}
                     else -> {
                         // эффект отсутствует
                         //tr = cellTextures
                         if (game.board!!.cells[x][y].gem != null) {
-                            tr = cellTextures[game.board!!.cells[x][y].gem!!.name]
+                            tr = game.cellTextures[game.board!!.cells[x][y].gem!!.name]
                         } else {
                             //tr = cellTextures["gem0"]
                         }
@@ -62,7 +70,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
                 if (tr != null) game.batch.draw(tr, GEM_SIZE * x, height - GEM_SIZE * (y + 1))
             }
         }
-        game.batch.end()
+        game.batch.end()*/
 
     }
 
