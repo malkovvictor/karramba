@@ -12,7 +12,7 @@ fun readBoardFromFile(filename: String): Board {
     val result = Board(width, height)
     val toFill: MutableCollection<Pair<Int, Int>> = LinkedHashSet<Pair<Int, Int>>()
 
-    for (y in 0 until height) {
+    for (y in height - 1 downTo 0) {
         val s = reader.readLine()
         if (s == null) {
             throw Exception("incorrect board")
@@ -46,9 +46,14 @@ fun readBoardFromFile(filename: String): Board {
                 // 2)
                 if (contains('p')) {
                     // producer
+                    result.cells[x][y].effect = ProducerCell
+                    result.cells[x][y].producer = true
+                    println("cell ($x, $y) is producer")
                 }
                 if (contains('c')) {
                     // consumer
+                    result.cells[x][y].effect = ConsumerCell
+                    result.cells[x][y].consumer = true
                 }
 
                 // 3) циферками может быть задан камень
@@ -101,7 +106,6 @@ fun fillEmptyCells(board: Board, toFill: Collection<Pair<Int,Int>>) {
                 )
             }
         }
-     //   println("cell ($x,$y): ${colors.map { it.name }}" )
 
         val r = Random.nextInt(colors.size)
         board.cells[x][y].gem = colors[r]

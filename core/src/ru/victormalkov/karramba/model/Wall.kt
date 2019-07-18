@@ -17,6 +17,8 @@ abstract class Wall: CellEffect {
 
 // просто неподвижная непрозрачная стена
 object StaticWall: Wall() {
+    override val movable: Boolean
+        get() = false
     override val decorator: Any
         get() = TODO("not implemented: return static wall texture") //To change initializer of created properties use File | Settings | File Templates.
 
@@ -24,6 +26,8 @@ object StaticWall: Wall() {
 
 // прозрачная стена, например край карты
 object TransparentWall: Wall() {
+    override val movable: Boolean
+        get() = false
     override val decorator: Any
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 
@@ -31,6 +35,8 @@ object TransparentWall: Wall() {
 
 // неподвижная стена, через которую могут падать камни
 object ThruWall: Wall() {
+    override val movable: Boolean
+        get() = false
     override val decorator: Any
         get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 }

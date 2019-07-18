@@ -1,10 +1,10 @@
 package ru.victormalkov.karramba.model
 
-import ru.victormalkov.karramba.model.CellEffect
-
 object ProducerCell: CellEffect {
     override val stackable: Boolean
         get() = true // не изменяет стакуемость
+    override val movable: Boolean
+        get() = true
 
     override fun onStack(): Boolean {
         return true
@@ -22,6 +22,8 @@ object ProducerCell: CellEffect {
 object ConsumerCell: CellEffect {
     override val stackable: Boolean
         get() = true // не изменяет стакуемость
+    override val movable: Boolean
+        get() = true
 
     override fun onStack(): Boolean {
         return true
