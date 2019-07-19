@@ -46,8 +46,17 @@ class Board(val width: Int, val height: Int) {
         return produced
     }
 
+    private fun checkUp(x: Int, y: Int): Boolean {
+        for (t in y+1 until height) {
+            if (movable(x, t)) return true
+            if (g(x, t) != null || c(x, t)?.effect is Wall) return false
+        }
+        return false
+    }
+
     // уронить камни вниз
     internal fun fall(): Triple<Pair<Int,Int>,Pair<Int,Int>,Gem>? {
+        // на первом проходе роняем только вертикально
         for (y in 0 until height) {
             for (x in 0 until width) {
                 if (g(x, y) == null && !(c(x, y)?.effect is Wall)) {
@@ -57,9 +66,17 @@ class Board(val width: Int, val height: Int) {
                         c(x, y + 1)!!.gem = null
                         Gdx.app.debug(TAG, "fall to ($x, $y) from up")
                         return Triple(Pair(x, y + 1), Pair(x, y), c(x, y)!!.gem!!)
-                    } else if (g(x, y + 1) == null && c(x, y + 1)?.effect !is Wall) {
-                        // nothing
-                    } else if (movable(x - 1, y + 1)) {
+                    }
+                }
+            }
+        }
+
+        // на втором проходе пробуем уронить по диагонали
+        for (y in 0 until height) {
+            for (x in 0 until width) {
+                if (g(x, y) == null && !(c(x, y)?.effect is Wall)) {
+                    Gdx.app.debug(TAG, "found hole at ($x, $y)")
+                    if (movable(x - 1, y + 1)) {
                         c(x, y)!!.gem = c(x - 1, y + 1)!!.gem
                         c(x - 1, y + 1)!!.gem = null
                         Gdx.app.debug(TAG, "fall to ($x, $y) from up-left")
@@ -73,6 +90,7 @@ class Board(val width: Int, val height: Int) {
                 }
             }
         }
+
         return null
     }
 

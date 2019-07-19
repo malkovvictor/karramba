@@ -57,6 +57,7 @@ class MyGame : Game() {
 
     override fun dispose() {
         batch.dispose()
+        cellTextures.clear()
         assetManager.dispose()
     }
 

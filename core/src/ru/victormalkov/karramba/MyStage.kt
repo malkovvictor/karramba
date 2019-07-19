@@ -36,7 +36,7 @@ class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
 
             Phase.FALL -> {
 //                println(game.phase)
-                if (eventList.filter{it is RemoveEvent}.isEmpty()) {
+                if (eventList.filter{it is RemoveEvent || it is FallEvent}.isEmpty()) {
                     var fallen = game.board!!.fall()
                     if (fallen == null) {
                         game.phase = Phase.PRODUCE
@@ -65,9 +65,6 @@ class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
             if (i.myTime >= i.eventTime - EPSILON) {
                 println("remove event: ${i.myTime}")
                 boardEvents.removeActor(i)
-                if (i is FallEvent) {
-                    game.board?.c(i.dest.first, i.dest.second)?.fallmark = false
-                }
                 iterator.remove()
             }
         }

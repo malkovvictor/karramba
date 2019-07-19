@@ -8,7 +8,4 @@ class Cell {
     var effect: CellEffect? = null
     var producer: Boolean = false
     var consumer: Boolean = false
-
-
-    var fallmark: Boolean = false
 }
