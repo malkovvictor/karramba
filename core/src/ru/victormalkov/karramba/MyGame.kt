@@ -29,6 +29,7 @@ class MyGame : Game() {
     var board: Board? = null
     val cellTextures: MutableMap<String, TextureRegion> = HashMap()
 
+    var phase = Phase.USER_WAIT
 
     var stars: Int = 0 // TODO: store and load stars
         private set
@@ -71,9 +72,12 @@ class MyGame : Game() {
 
     fun processMove(source: CellActor, dest: CellActor) {
         if (board!!.processMove(source.x, source.y, dest.x, dest.y)) {
-            var smth: Boolean
+            phase = Phase.REMOVE_MATCHES
+
+/*            var smth: Boolean
             do {
-                smth = board!!.removeMatches()
+                var removeList = board!!.removeMatches()
+                smth = removeList.isNotEmpty()
                 var smth2: Boolean
                 do {
                     smth2 = false
@@ -86,7 +90,15 @@ class MyGame : Game() {
                         smth2 = true
                     }
                 } while (smth2)
-            } while (smth)
+            } while (smth)   */
         }
+
     }
+}
+
+enum class Phase {
+    USER_WAIT,
+    REMOVE_MATCHES,
+    FALL,
+    PRODUCE
 }

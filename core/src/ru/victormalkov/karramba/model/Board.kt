@@ -47,7 +47,7 @@ class Board(val width: Int, val height: Int) {
     }
 
     // уронить камни вниз
-    internal fun fall(): Boolean {
+    internal fun fall(): Triple<Pair<Int,Int>,Pair<Int,Int>,Gem>? {
         for (y in 0 until height) {
             for (x in 0 until width) {
                 if (g(x, y) == null && !(c(x, y)?.effect is Wall)) {
@@ -56,23 +56,24 @@ class Board(val width: Int, val height: Int) {
                         c(x, y)!!.gem = c(x, y + 1)!!.gem
                         c(x, y + 1)!!.gem = null
                         Gdx.app.debug(TAG, "fall to ($x, $y) from up")
-                        return true
+                        return Triple(Pair(x, y + 1), Pair(x, y), c(x, y)!!.gem!!)
+                    } else if (g(x, y + 1) == null && c(x, y + 1)?.effect !is Wall) {
+                        // nothing
                     } else if (movable(x - 1, y + 1)) {
                         c(x, y)!!.gem = c(x - 1, y + 1)!!.gem
                         c(x - 1, y + 1)!!.gem = null
                         Gdx.app.debug(TAG, "fall to ($x, $y) from up-left")
-                        return true
+                        return Triple(Pair(x - 1, y + 1), Pair(x, y), c(x, y)!!.gem!!)
                     } else if (movable(x + 1, y + 1)) {
                         c(x, y)!!.gem = c(x + 1, y + 1)!!.gem
                         c(x + 1, y + 1)!!.gem = null
                         Gdx.app.debug(TAG, "fall to ($x, $y) from up-right")
-                        return true
+                        return Triple(Pair(x + 1, y + 1), Pair(x, y), c(x, y)!!.gem!!)
                     }
                 }
             }
         }
-        return false
-
+        return null
     }
 
     internal fun shuffle() {
@@ -169,8 +170,8 @@ class Board(val width: Int, val height: Int) {
         return true
     }
 
-    fun removeMatches(): Boolean {
-        var somethingRemoved = false
+    fun removeMatches(): List<Triple<Int, Int, Gem>> {
+        val removeList = ArrayList<Triple<Int,Int,Gem>>()
         for (x in 0 until width) {
             for (y in 0 until height) {
                 if (stackable(x, y)) {
@@ -179,21 +180,23 @@ class Board(val width: Int, val height: Int) {
                     while (stackable(x + xx, y) && g(x + xx, y) == g(x, y)) xx++
                     while (stackable(x, y + yy) && g(x, y + yy) == g(x, y)) yy++
                     if (xx >= 3) {
-                        somethingRemoved = true
                         for (x2 in x until x + xx) {
-                            c(x2, y)!!.gem = null
+                            removeList.add(Triple(x2, y, c(x2, y)!!.gem!!))
                         }
                     }
                     if (yy >= 3) {
-                        somethingRemoved = true
                         for (y2 in y until y + yy) {
-                            c(x, y2)!!.gem = null
+                            removeList.add(Triple(x, y2, c(x, y2)!!.gem!!))
                         }
                     }
                 }
             }
         }
 
-        return somethingRemoved
+        val distRemoveList = removeList.distinct()
+        distRemoveList.forEach { (x, y, g) ->
+            c(x,y)!!.gem = null
+        }
+        return distRemoveList
     }
 }

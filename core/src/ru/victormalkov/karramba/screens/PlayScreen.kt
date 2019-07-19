@@ -9,11 +9,12 @@ import com.badlogic.gdx.scenes.scene2d.Touchable
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 import ru.victormalkov.karramba.*
+import ru.victormalkov.karramba.boardEvents.BoardEvent
+import java.util.*
 
 class PlayScreen(val game: MyGame) : ScreenAdapter() {
     private var viewport: Viewport
-    private var stage: Stage
-
+    private var stage: MyStage
 
     init {
         if (game.board == null) {
@@ -23,16 +24,17 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
         viewport = FitViewport(WORLD_WIDTH, WORLD_HEIGHT)
         viewport.apply(true)
 
-        stage = Stage(viewport)
+        stage = MyStage(viewport, game)
         Gdx.input.inputProcessor = stage
         val bg = Group()
         val fg = Group()
 
         stage.addActor(bg)
         stage.addActor(fg)
+        stage.addActor(stage.boardEvents)
         fg.touchable = Touchable.enabled
 
-        var boardActor = BoardActor(game.board!!)
+        var boardActor = BoardActor(game)
         bg.addActor(boardActor)
 
         for (x in 0 until game.board!!.width) {
@@ -54,6 +56,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         stage.act(delta)
         stage.draw()
+
     }
 
     override fun resize(width: Int, height: Int) {
