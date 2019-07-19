@@ -8,7 +8,7 @@ import ru.victormalkov.karramba.model.Gem
 
 class FallEvent(game: MyGame, val source: Pair<Int, Int>, val dest: Pair<Int, Int>, val gem: Gem) : BoardEvent(game) {
     override val eventTime: Float
-        get() = .5f
+        get() = .05f
 
     private val me = Sprite(game.cellTextures[gem.name])
 
