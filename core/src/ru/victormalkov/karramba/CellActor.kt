@@ -63,7 +63,7 @@ class CellActor(val myCell: Cell, val x: Int, val y: Int, val game: MyGame): Act
             }
         }
         if (tr != null) {
-            var s = stage as MyStage
+            var s = stage as GameStage
             if (s.eventList.find { it is FallEvent && it.dest.first == x && it.dest.second == y} == null) {
                 batch!!.draw(tr, getX(), getY())
             }

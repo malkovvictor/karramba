@@ -4,17 +4,14 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.scenes.scene2d.Group
-import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.scenes.scene2d.Touchable
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 import ru.victormalkov.karramba.*
-import ru.victormalkov.karramba.boardEvents.BoardEvent
-import java.util.*
 
 class PlayScreen(val game: MyGame) : ScreenAdapter() {
     private var viewport: Viewport
-    private var stage: MyStage
+    private var stage: GameStage
 
     init {
         if (game.board == null) {
@@ -24,7 +21,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
         viewport = FitViewport(WORLD_WIDTH, WORLD_HEIGHT)
         viewport.apply(true)
 
-        stage = MyStage(viewport, game)
+        stage = GameStage(viewport, game)
         Gdx.input.inputProcessor = stage
         val bg = Group()
         val fg = Group()

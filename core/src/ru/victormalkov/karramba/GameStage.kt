@@ -11,8 +11,8 @@ import java.util.*
 
 const val EPSILON = 0.0001
 
-class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
-    private val TAG = "MyStage"
+class GameStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
+    private val TAG = "GameStage"
     var boardEvents = Group()
     var eventList = LinkedList<BoardEvent>()
 
