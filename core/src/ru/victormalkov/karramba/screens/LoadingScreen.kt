@@ -40,4 +40,9 @@ class LoadingScreen(private val game: MyGame) : ScreenAdapter() {
             Gdx.app.log(TAG, "${game.assetManager.loadedAssets} assets loaded")
         }
     }
+
+    override fun dispose() {
+        super.dispose()
+        font.dispose()
+    }
 }

@@ -40,4 +40,9 @@ class FramestoryScreen(val game: MyGame) : ScreenAdapter() {
             dispose()
         }
     }
+
+    override fun dispose() {
+        super.dispose()
+        font.dispose()
+    }
 }

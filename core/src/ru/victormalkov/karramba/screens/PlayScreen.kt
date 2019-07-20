@@ -59,4 +59,9 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
     override fun resize(width: Int, height: Int) {
         viewport.update(width, height, true)
     }
+
+    override fun dispose() {
+        super.dispose()
+        stage.dispose()
+    }
 }
