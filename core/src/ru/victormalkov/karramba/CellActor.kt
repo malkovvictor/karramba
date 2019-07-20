@@ -1,5 +1,6 @@
 package ru.victormalkov.karramba
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.scenes.scene2d.Actor
@@ -12,14 +13,15 @@ import ru.victormalkov.karramba.model.StaticWall
 import ru.victormalkov.karramba.model.TransparentWall
 
 class CellActor(val myCell: Cell, val x: Int, val y: Int, val game: MyGame): Actor() {
+    val TAG = "CellActor"
     init {
         this.addListener(object : DragListener() {
             override fun drag(event: InputEvent?, x: Float, y: Float, pointer: Int) {
-                if (game.phase != Phase.USER_WAIT) return;
-                println("drag cell (${this@CellActor.x}, ${this@CellActor.y}) to position (${event!!.stageX}, ${event!!.stageY})")
+                if (game.phase != Phase.USER_WAIT) return
+                Gdx.app.debug(TAG, "drag cell (${this@CellActor.x}, ${this@CellActor.y}) to position (${event!!.stageX}, ${event!!.stageY})")
                 val a = this@CellActor.stage.hit(event!!.stageX, event!!.stageY, false)
                 if (a is CellActor) {
-                    println("$a")
+                    Gdx.app.debug(TAG, "target cell: $a")
                     if (a != this@CellActor) {
                         game.processMove(this@CellActor, a)
                     }
@@ -29,7 +31,7 @@ class CellActor(val myCell: Cell, val x: Int, val y: Int, val game: MyGame): Act
         updateTouchable()
     }
 
-    fun updateTouchable() {
+    private fun updateTouchable() {
         var touch = myCell.gem != null
         if (myCell.effect?.movable == false) {
             touch = false

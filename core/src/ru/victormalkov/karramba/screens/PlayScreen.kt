@@ -49,7 +49,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
     }
 
     override fun show() {
-        Gdx.input.inputProcessor = stage
+    //    Gdx.input.inputProcessor = stage
     }
 
     override fun render(delta: Float) {

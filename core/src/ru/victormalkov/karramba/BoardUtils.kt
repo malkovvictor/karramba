@@ -7,6 +7,7 @@ import kotlin.random.Random
 val gemPool: Array<Gem> = Array(ORDINARY_GEM_TYPES) {OrdinaryGem("gem$it")}
 
 fun readBoardFromFile(filename: String): Board {
+    val TAG = "BoardUtils"
     val reader = Gdx.files.internal(filename).reader(2048) //todo move to asset manager
     val (width, height) = reader.readLine()!!.split(" ").map(String::toInt)
     val result = Board(width, height)
@@ -18,7 +19,6 @@ fun readBoardFromFile(filename: String): Board {
             throw Exception("incorrect board")
         }
         val items = s.trim().split("\\s+".toRegex())
-//        items.forEach{println("item:'$it'")}
         items.forEachIndexed { x, s ->
             with (s) {
                 // 1) основной тип ячейки доски
@@ -39,7 +39,7 @@ fun readBoardFromFile(filename: String): Board {
                         result.cells[x][y].effect = ThruWall
                     }
                     else -> {
-                        println("unknown cell ($x, $y) type: ${this}")
+                        Gdx.app.debug(TAG, "unknown cell ($x, $y) type: ${this}")
                     }
                 }
 
@@ -48,7 +48,7 @@ fun readBoardFromFile(filename: String): Board {
                     // producer
                     result.cells[x][y].effect = ProducerCell
                     result.cells[x][y].producer = true
-                    println("cell ($x, $y) is producer")
+                    Gdx.app.debug(TAG, "cell ($x, $y) is producer")
                 }
                 if (contains('c')) {
                     // consumer

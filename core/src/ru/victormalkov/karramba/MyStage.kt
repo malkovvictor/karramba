@@ -1,5 +1,6 @@
 package ru.victormalkov.karramba
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.viewport.Viewport
@@ -11,6 +12,7 @@ import java.util.*
 const val EPSILON = 0.0001
 
 class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
+    private val TAG = "MyStage"
     var boardEvents = Group()
     var eventList = LinkedList<BoardEvent>()
 
@@ -19,7 +21,7 @@ class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
 
         when (game.phase) {
             Phase.REMOVE_MATCHES -> {
-                println(game.phase)
+                Gdx.app.debug(TAG, game.phase.toString())
                 var removeList = game.board!!.removeMatches()
                 if (removeList.isEmpty()) {
                     game.phase = Phase.USER_WAIT
@@ -35,7 +37,7 @@ class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
             }
 
             Phase.FALL -> {
-//                println(game.phase)
+//                Gdx.app.debug(TAG, game.phase.toString())
                 if (eventList.filter{it is RemoveEvent || it is FallEvent}.isEmpty()) {
                     var fallen = game.board!!.fall()
                     if (fallen == null) {
@@ -43,14 +45,14 @@ class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
                     } else {
                         var fe = FallEvent(game, fallen.first, fallen.second, fallen.third)
                         addEvent(fe)
-                        println("new fall event")
+                        Gdx.app.debug(TAG, "new fall event")
                     }
                 }
             }
 
             Phase.PRODUCE -> {
                 if (eventList.isEmpty()) {
-                    println(game.phase)
+                    Gdx.app.debug(TAG, game.phase.toString())
                     if (game.board!!.produce()) {
                         game.phase = Phase.FALL
                     } else {
@@ -63,7 +65,7 @@ class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
         val iterator = eventList.iterator()
         for (i in iterator) {
             if (i.myTime >= i.eventTime - EPSILON) {
-                println("remove event: ${i.myTime}")
+                Gdx.app.debug(TAG, "remove event: ${i.myTime}")
                 boardEvents.removeActor(i)
                 iterator.remove()
             }
@@ -71,7 +73,7 @@ class MyStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
 
     }
 
-    fun addEvent(event: BoardEvent) {
+    private fun addEvent(event: BoardEvent) {
         boardEvents.addActor(event)
         eventList.add(event)
     }

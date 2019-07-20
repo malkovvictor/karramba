@@ -7,6 +7,7 @@ import ru.victormalkov.karramba.MyGame
 import ru.victormalkov.karramba.model.Gem
 
 class RemoveEvent(game: MyGame, val xx: Int, val yy: Int, private val gem: Gem) : BoardEvent(game) {
+    private val TAG = "RemoveEvent"
     private val me = Sprite(game.cellTextures[gem.name])
 
     init {
@@ -23,6 +24,6 @@ class RemoveEvent(game: MyGame, val xx: Int, val yy: Int, private val gem: Gem) 
     override fun act(delta: Float) {
         super.act(delta)
         me.setAlpha(1.0f - myTime / eventTime)
-    //    println("my time is ${myTime}, my alpha is ${1.0f - myTime / eventTime}")
+    //    Gdx.app.debug(TAG, "my time is ${myTime}, my alpha is ${1.0f - myTime / eventTime}")
     }
 }

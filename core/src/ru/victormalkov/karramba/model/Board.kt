@@ -180,7 +180,7 @@ class Board(val width: Int, val height: Int) {
         }
         Gdx.app.debug(TAG, "found combo #$combo")
 
-        println("ok to move")
+        Gdx.app.debug(TAG, "ok to move")
         val tmp = g(sx, sy)
         c(sx, sy)!!.gem = g(dx, dy)
         c(dx, dy)!!.gem = tmp
