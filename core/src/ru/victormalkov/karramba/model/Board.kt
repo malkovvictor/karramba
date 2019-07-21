@@ -47,16 +47,16 @@ class Board(val width: Int, val height: Int) {
     }
 
     private fun checkUp(x: Int, y: Int): Boolean {
-        for (t in y+1 until height) {
+        for (t in y + 1 until height) {
             if (movable(x, t)) return true
             if (g(x, t) != null || c(x, t)?.effect is Wall) return false
+            if (g(x, t) == null && c(x, t)!!.producer) return true
         }
         return false
     }
 
     // уронить камни вниз
-    internal fun fall(): Triple<Pair<Int,Int>,Pair<Int,Int>,Gem>? {
-        // на первом проходе роняем только вертикально
+    internal fun fall(): Triple<Pair<Int, Int>, Pair<Int, Int>, Gem>? {
         for (y in 0 until height) {
             for (x in 0 until width) {
                 if (g(x, y) == null && !(c(x, y)?.effect is Wall)) {
@@ -66,36 +66,22 @@ class Board(val width: Int, val height: Int) {
                         c(x, y + 1)!!.gem = null
                         Gdx.app.debug(TAG, "fall to ($x, $y) from up")
                         return Triple(Pair(x, y + 1), Pair(x, y), c(x, y)!!.gem!!)
+                    } else if (!checkUp(x, y)) {
+                        if (movable(x - 1, y + 1) && (g(x-1,y) != null || c(x-1, y)?.effect is Wall)) {
+                            c(x, y)!!.gem = c(x - 1, y + 1)!!.gem
+                            c(x - 1, y + 1)!!.gem = null
+                            Gdx.app.debug(TAG, "fall to ($x, $y) from up-left")
+                            return Triple(Pair(x - 1, y + 1), Pair(x, y), c(x, y)!!.gem!!)
+                        } else if (movable(x + 1, y + 1)  && (g(x+1, y) != null || c(x+1, y)?.effect is Wall)) {
+                            c(x, y)!!.gem = c(x + 1, y + 1)!!.gem
+                            c(x + 1, y + 1)!!.gem = null
+                            Gdx.app.debug(TAG, "fall to ($x, $y) from up-right")
+                            return Triple(Pair(x + 1, y + 1), Pair(x, y), c(x, y)!!.gem!!)
+                        }
                     }
                 }
             }
         }
-
-        // на втором проходе пробуем уронить по диагонали
-
-        // todo логика падения по диагонали должна быть другой
-        // пустую ячейку заполнить по диагонали только если у неё нет шансов быть заполненной сверху
-        // т. е. не заполнять если наверху над рядом пустых или есть камень, или есть продуцирующая ячейка
-        // и тогда можно в общем цикле
-        for (y in 0 until height) {
-            for (x in 0 until width) {
-                if (g(x, y) == null && !(c(x, y)?.effect is Wall)) {
-                    Gdx.app.debug(TAG, "found hole at ($x, $y)")
-                    if (movable(x - 1, y + 1)) {
-                        c(x, y)!!.gem = c(x - 1, y + 1)!!.gem
-                        c(x - 1, y + 1)!!.gem = null
-                        Gdx.app.debug(TAG, "fall to ($x, $y) from up-left")
-                        return Triple(Pair(x - 1, y + 1), Pair(x, y), c(x, y)!!.gem!!)
-                    } else if (movable(x + 1, y + 1)) {
-                        c(x, y)!!.gem = c(x + 1, y + 1)!!.gem
-                        c(x + 1, y + 1)!!.gem = null
-                        Gdx.app.debug(TAG, "fall to ($x, $y) from up-right")
-                        return Triple(Pair(x + 1, y + 1), Pair(x, y), c(x, y)!!.gem!!)
-                    }
-                }
-            }
-        }
-
         return null
     }
 
@@ -194,7 +180,7 @@ class Board(val width: Int, val height: Int) {
     }
 
     fun removeMatches(): List<Triple<Int, Int, Gem>> {
-        val removeList = ArrayList<Triple<Int,Int,Gem>>()
+        val removeList = ArrayList<Triple<Int, Int, Gem>>()
         for (x in 0 until width) {
             for (y in 0 until height) {
                 if (stackable(x, y)) {
@@ -218,7 +204,7 @@ class Board(val width: Int, val height: Int) {
 
         val distRemoveList = removeList.distinct()
         distRemoveList.forEach { (x, y, g) ->
-            c(x,y)!!.gem = null
+            c(x, y)!!.gem = null
         }
         return distRemoveList
     }
