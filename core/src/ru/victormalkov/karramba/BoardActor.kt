@@ -1,6 +1,7 @@
 package ru.victormalkov.karramba
 
 import com.badlogic.gdx.Game
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
@@ -9,12 +10,14 @@ import ru.victormalkov.karramba.model.Board
 
 
 class BoardActor(private val game: MyGame): Actor() {
+    val TAG = "BoardActor"
     private var shaper: ShapeRenderer = ShapeRenderer()
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
         if (batch!!.isDrawing) {
             batch.end()
         }
+        //Gdx.app.debug(TAG, "drawing board, width: ${game.board!!.width}, height: ${game.board!!.height}")
         shaper.projectionMatrix = stage.viewport.camera.combined
         shaper.begin(ShapeRenderer.ShapeType.Filled)
         shaper.color = Color.FOREST

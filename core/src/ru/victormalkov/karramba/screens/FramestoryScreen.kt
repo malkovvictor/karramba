@@ -35,7 +35,7 @@ class FramestoryScreen(val game: MyGame) : ScreenAdapter() {
 
         if (Gdx.input.isTouched || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
             Gdx.app.log(TAG, "запуск игры")
-            game.loadLevel(1)
+            game.loadLevel(2)
             game.screen = PlayScreen(game)
             dispose()
         }

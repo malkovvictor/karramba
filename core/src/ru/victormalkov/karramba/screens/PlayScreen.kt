@@ -18,7 +18,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
             throw Exception("board is null")
         }
 
-        viewport = FitViewport(WORLD_WIDTH, WORLD_HEIGHT)
+        viewport = FitViewport(game.getWorldWidth(), game.getWorldHeight())
         viewport.apply(true)
 
         stage = GameStage(viewport, game)

@@ -17,8 +17,6 @@ import ru.victormalkov.karramba.screens.LoadingScreen
 import kotlin.math.abs
 
 const val GEM_SIZE = 24f
-const val WORLD_WIDTH = GEM_SIZE * 8
-const val WORLD_HEIGHT = GEM_SIZE * 10
 const val ORDINARY_GEM_TYPES = 5
 
 class MyGame : Game() {
@@ -35,6 +33,15 @@ class MyGame : Game() {
         private set
     var levelsCompleted = 0
         private set
+
+    fun getWorldWidth() : Float =
+        if (board == null) 0f
+        else GEM_SIZE * board!!.width
+
+    fun getWorldHeight() : Float =
+        if (board == null) 0f
+        else GEM_SIZE * board!!.height
+
 
     private fun loadAssets() {
         assetManager.load("karramba.png", Texture::class.java)
