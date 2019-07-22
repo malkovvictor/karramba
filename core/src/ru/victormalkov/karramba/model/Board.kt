@@ -55,7 +55,8 @@ class Board(val width: Int, val height: Int) {
         return false
     }
 
-    // уронить камни вниз
+    // надо уронить камни вниз
+    // функция находит один падающий камень, возвращает, откуда куда и что падает
     internal fun fall(): Triple<Pair<Int, Int>, Pair<Int, Int>, Gem>? {
         for (y in 0 until height) {
             for (x in 0 until width) {
