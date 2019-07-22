@@ -1,8 +1,12 @@
 package ru.victormalkov.karramba.model
 
 import com.badlogic.gdx.Gdx
+import com.sun.org.apache.xpath.internal.operations.Bool
 import kotlinx.serialization.Serializable
 import ru.victormalkov.karramba.gemPool
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -209,4 +213,31 @@ class Board(val width: Int, val height: Int) {
         }
         return distRemoveList
     }
+
+    fun findComponents(list: List<Triple<Int, Int, Gem>>) : List<List<Triple<Int, Int, Gem>>> {
+        val result = ArrayList<List<Triple<Int, Int, Gem>>>()
+        val map = HashMap<Triple<Int, Int, Gem>, Boolean>()
+        list.forEach {map[it] = false}
+        while (map.containsValue(false)) {
+            val component = ArrayList<Triple<Int, Int, Gem>>()
+            result.add(component)
+            val stack = LinkedList<Triple<Int, Int, Gem>>()
+            val a = map.entries.find { !it.value }?.key!!
+            stack.add(a)
+            map[a] = true
+            while (stack.isNotEmpty()) {
+                val b = stack.pop()
+                component.add(b)
+                list.filter { !map[it]!! && (abs(it.first - b.first) + abs(it.second - b.second) == 1) && it.third == b.third}.forEach {
+                    stack.push(it)
+                    map[it] = true
+                }
+            }
+            component.sortWith(compareBy({it.first}, {it.second}))
+        }
+
+
+        return result
+    }
+
 }

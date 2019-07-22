@@ -6,10 +6,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.Texture
-import com.badlogic.gdx.graphics.g2d.Batch
-import com.badlogic.gdx.graphics.g2d.SpriteBatch
-import com.badlogic.gdx.graphics.g2d.TextureAtlas
-import com.badlogic.gdx.graphics.g2d.TextureRegion
+import com.badlogic.gdx.graphics.g2d.*
 import ru.victormalkov.karramba.model.Board
 import ru.victormalkov.karramba.model.Cell
 import ru.victormalkov.karramba.model.Wall
@@ -19,6 +16,10 @@ import kotlin.math.abs
 const val GEM_SIZE = 24f
 const val ORDINARY_GEM_TYPES = 5
 
+const val SCORE3 = 1 // * gem count
+const val SCORE4 = 1.5 // * gem count
+const val SCORE5 = 2 // * gem count
+
 class MyGame : Game() {
     val TAG = "MyGame"
 
@@ -26,6 +27,7 @@ class MyGame : Game() {
     lateinit var batch: Batch private set
     var board: Board? = null
     val cellTextures: MutableMap<String, TextureRegion> = HashMap()
+    lateinit var font: BitmapFont
 
     var phase = Phase.USER_WAIT
 
@@ -33,6 +35,8 @@ class MyGame : Game() {
         private set
     var levelsCompleted = 0
         private set
+    var currentScore = 0
+    var movesCount = 0
 
     fun getWorldWidth() : Float =
         if (board == null) 0f
@@ -53,6 +57,7 @@ class MyGame : Game() {
         assetManager.get("karramba.atlas", TextureAtlas::class.java).regions.forEach {
             cellTextures[it.name] = it
         }
+        font = BitmapFont()
     }
 
     override fun create() {
@@ -66,11 +71,13 @@ class MyGame : Game() {
         batch.dispose()
         cellTextures.clear()
         assetManager.dispose()
+        font.dispose()
     }
 
     fun loadLevel(n: Int) {
         board = readBoardFromFile("level$n")
-
+        movesCount = 0
+        currentScore = 0
     }
 
     override fun resume() {
@@ -80,6 +87,7 @@ class MyGame : Game() {
 
     fun processMove(source: CellActor, dest: CellActor) {
         if (board!!.processMove(source.x, source.y, dest.x, dest.y)) {
+            movesCount++
             phase = Phase.REMOVE_MATCHES
 
 /*            var smth: Boolean

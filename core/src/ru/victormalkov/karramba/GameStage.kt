@@ -7,7 +7,9 @@ import com.badlogic.gdx.utils.viewport.Viewport
 import ru.victormalkov.karramba.boardEvents.BoardEvent
 import ru.victormalkov.karramba.boardEvents.FallEvent
 import ru.victormalkov.karramba.boardEvents.RemoveEvent
+import ru.victormalkov.karramba.boardEvents.ScoreEvent
 import java.util.*
+import kotlin.math.roundToInt
 
 const val EPSILON = 0.0001
 
@@ -26,6 +28,21 @@ class GameStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
                 if (removeList.isEmpty()) {
                     game.phase = Phase.USER_WAIT
                 } else {
+                    var components = game.board!!.findComponents(removeList)
+                    Gdx.app.debug(TAG, "score before = ${game.currentScore}")
+                    Gdx.app.debug(TAG, components.toString())
+                    components.forEach{
+                        val add: Int = when (it.size) {
+                            0, 1, 2 -> 0
+                            3 -> SCORE3 * 3
+                            4 -> (SCORE4 * 4).roundToInt()
+                            else -> SCORE5 * it.size
+                        }
+                        game.currentScore += add
+                        var scoreEvent = ScoreEvent(game, add, it[0].first, it[0].second)
+                        addEvent(scoreEvent)
+                    }
+                    Gdx.app.debug(TAG, "score after = ${game.currentScore}")
                     for (tr in removeList) {
                         var re = RemoveEvent(game, tr.first, tr.second, tr.third)
                         re.setSize(GEM_SIZE, GEM_SIZE)

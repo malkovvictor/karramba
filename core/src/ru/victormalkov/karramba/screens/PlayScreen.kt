@@ -43,6 +43,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
                 cellActor.setBounds(x * GEM_SIZE, y * GEM_SIZE, GEM_SIZE, GEM_SIZE)
             }
         }
+        game.currentScore = 0
     }
 
     override fun show() {

@@ -24,6 +24,5 @@ class RemoveEvent(game: MyGame, val xx: Int, val yy: Int, private val gem: Gem) 
     override fun act(delta: Float) {
         super.act(delta)
         me.setAlpha(1.0f - myTime / eventTime)
-    //    Gdx.app.debug(TAG, "my time is ${myTime}, my alpha is ${1.0f - myTime / eventTime}")
     }
 }
