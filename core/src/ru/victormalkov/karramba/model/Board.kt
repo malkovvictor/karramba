@@ -1,7 +1,6 @@
 package ru.victormalkov.karramba.model
 
 import com.badlogic.gdx.Gdx
-import com.sun.org.apache.xpath.internal.operations.Bool
 import kotlinx.serialization.Serializable
 import ru.victormalkov.karramba.gemPool
 import java.util.*
