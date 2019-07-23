@@ -13,7 +13,7 @@ import kotlin.math.roundToInt
 
 const val EPSILON = 0.0001
 
-class GameStage(viewport: Viewport, val game: MyGame) : Stage(viewport) {
+class GameStage(viewport: Viewport, val game: MyGame) : Stage(viewport, game.batch) {
     private val TAG = "GameStage"
     var boardEvents = Group()
     var eventList = LinkedList<BoardEvent>()

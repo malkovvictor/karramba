@@ -6,22 +6,24 @@ import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.Touchable
 import com.badlogic.gdx.utils.viewport.FitViewport
+import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 import ru.victormalkov.karramba.*
 
 class PlayScreen(val game: MyGame) : ScreenAdapter() {
-    private var viewport: Viewport
+    private var gameViewport: Viewport
+
     private var stage: GameStage
+    private val hud: Hud
 
     init {
         if (game.board == null) {
             throw Exception("board is null")
         }
 
-        viewport = FitViewport(game.getWorldWidth(), game.getWorldHeight())
-        viewport.apply(true)
-
-        stage = GameStage(viewport, game)
+        gameViewport = FitViewport(game.getWorldWidth(), game.getWorldHeight())
+        hud = Hud(game.batch)
+        stage = GameStage(gameViewport, game)
         Gdx.input.inputProcessor = stage
         val bg = Group()
         val fg = Group()
@@ -53,16 +55,24 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
     override fun render(delta: Float) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         stage.act(delta)
+        hud.stage.act(delta)
+
+        gameViewport.apply(true)
         stage.draw()
+        hud.stage.viewport.apply()
+        hud.stage.draw()
 
     }
 
     override fun resize(width: Int, height: Int) {
-        viewport.update(width, height, true)
+        gameViewport.update(width, height, true)
+
+        hud.stage.viewport.update(width, height, true)
     }
 
     override fun dispose() {
         super.dispose()
         stage.dispose()
+        hud.dispose()
     }
 }

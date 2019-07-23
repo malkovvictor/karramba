@@ -12,7 +12,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import ru.victormalkov.karramba.MyGame
 
 class LoadingScreen(private val game: MyGame) : ScreenAdapter() {
-    private val TAG = "LoadingScreen"
     private val camera = OrthographicCamera()
     private var loading : Sprite
     private var font: BitmapFont
@@ -36,13 +35,17 @@ class LoadingScreen(private val game: MyGame) : ScreenAdapter() {
         if (game.assetManager.update()) {
             game.finishLoading()
             game.screen = FramestoryScreen(game)
-            Gdx.app.log(TAG, "loading finished")
-            Gdx.app.log(TAG, "${game.assetManager.loadedAssets} assets loaded")
+            Gdx.app.log(Companion.TAG, "loading finished")
+            Gdx.app.log(Companion.TAG, "${game.assetManager.loadedAssets} assets loaded")
         }
     }
 
     override fun dispose() {
         super.dispose()
         font.dispose()
+    }
+
+    companion object {
+        const val TAG = "LoadingScreen"
     }
 }

@@ -11,7 +11,6 @@ import kotlin.random.Random
 
 @Serializable
 class Board(val width: Int, val height: Int) {
-    val TAG = "Board"
     internal val cells: Array<Array<Cell>> = Array(width) { Array(height) { Cell() } }
 
     fun c(x: Int, y: Int): Cell? {
@@ -41,7 +40,7 @@ class Board(val width: Int, val height: Int) {
 
                 if (g(x, y) == null && c(x, y)!!.producer) {
                     c(x, y)!!.gem = gemPool[Random.nextInt(gemPool.size)]
-                    Gdx.app.debug(TAG, "produced in cell ($x, $y)")
+                    Gdx.app.debug(Companion.TAG, "produced in cell ($x, $y)")
                     produced = true
                 }
             }
@@ -64,22 +63,22 @@ class Board(val width: Int, val height: Int) {
         for (y in 0 until height) {
             for (x in 0 until width) {
                 if (g(x, y) == null && !(c(x, y)?.effect is Wall)) {
-                    Gdx.app.debug(TAG, "found hole at ($x, $y)")
+                    Gdx.app.debug(Companion.TAG, "found hole at ($x, $y)")
                     if (movable(x, y + 1)) {
                         c(x, y)!!.gem = c(x, y + 1)!!.gem
                         c(x, y + 1)!!.gem = null
-                        Gdx.app.debug(TAG, "fall to ($x, $y) from up")
+                        Gdx.app.debug(Companion.TAG, "fall to ($x, $y) from up")
                         return Triple(Pair(x, y + 1), Pair(x, y), c(x, y)!!.gem!!)
                     } else if (!checkUp(x, y)) {
                         if (movable(x - 1, y + 1) && (g(x-1,y) != null || c(x-1, y)?.effect is Wall)) {
                             c(x, y)!!.gem = c(x - 1, y + 1)!!.gem
                             c(x - 1, y + 1)!!.gem = null
-                            Gdx.app.debug(TAG, "fall to ($x, $y) from up-left")
+                            Gdx.app.debug(Companion.TAG, "fall to ($x, $y) from up-left")
                             return Triple(Pair(x - 1, y + 1), Pair(x, y), c(x, y)!!.gem!!)
                         } else if (movable(x + 1, y + 1)  && (g(x+1, y) != null || c(x+1, y)?.effect is Wall)) {
                             c(x, y)!!.gem = c(x + 1, y + 1)!!.gem
                             c(x + 1, y + 1)!!.gem = null
-                            Gdx.app.debug(TAG, "fall to ($x, $y) from up-right")
+                            Gdx.app.debug(Companion.TAG, "fall to ($x, $y) from up-right")
                             return Triple(Pair(x + 1, y + 1), Pair(x, y), c(x, y)!!.gem!!)
                         }
                     }
@@ -116,25 +115,25 @@ class Board(val width: Int, val height: Int) {
     fun processMove(sx: Int, sy: Int, dx: Int, dy: Int): Boolean {
         // проверка, что это соседние клетки
         if (abs(sx - dx) + abs(sy - dy) != 1) {
-            Gdx.app.debug(TAG, "not adjasent - cannot move")
+            Gdx.app.debug(Companion.TAG, "not adjasent - cannot move")
             return false
         }
 
         // проверка, что перемещаем в допустимое место
         if (g(dx, dy) is Wall) {
-            Gdx.app.debug(TAG, "dest is wall - cannot move")
+            Gdx.app.debug(Companion.TAG, "dest is wall - cannot move")
             return false
         }
         if (g(dx, dy)?.effect?.movable == false) {
-            Gdx.app.debug(TAG, "dest gem effect says - cannot move")
+            Gdx.app.debug(Companion.TAG, "dest gem effect says - cannot move")
             return false
         }
         if (c(dx, dy)!!.effect?.movable == false) {
-            Gdx.app.debug(TAG, "dest cell effect says - cannot move")
+            Gdx.app.debug(Companion.TAG, "dest cell effect says - cannot move")
             return false
         }
         if (!movable(sx, sy)) {
-            Gdx.app.debug(TAG, "source gem is not movable, this is strange")
+            Gdx.app.debug(Companion.TAG, "source gem is not movable, this is strange")
             return false
         }
 
@@ -170,12 +169,12 @@ class Board(val width: Int, val height: Int) {
             }
         }
         if (combo < 0) {
-            Gdx.app.debug(TAG, "no combo found -- cannot move")
+            Gdx.app.debug(Companion.TAG, "no combo found -- cannot move")
             return false
         }
-        Gdx.app.debug(TAG, "found combo #$combo")
+        Gdx.app.debug(Companion.TAG, "found combo #$combo")
 
-        Gdx.app.debug(TAG, "ok to move")
+        Gdx.app.debug(Companion.TAG, "ok to move")
         val tmp = g(sx, sy)
         c(sx, sy)!!.gem = g(dx, dy)
         c(dx, dy)!!.gem = tmp
@@ -237,6 +236,10 @@ class Board(val width: Int, val height: Int) {
 
 
         return result
+    }
+
+    companion object {
+        const val TAG = "Board"
     }
 
 }

@@ -6,11 +6,8 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.scenes.scene2d.Actor
-import ru.victormalkov.karramba.model.Board
-
 
 class BoardActor(private val game: MyGame): Actor() {
-    val TAG = "BoardActor"
     private var shaper: ShapeRenderer = ShapeRenderer()
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
@@ -30,5 +27,10 @@ class BoardActor(private val game: MyGame): Actor() {
 
     override fun act(delta: Float) {
         //super.act(delta)
+    }
+
+    companion object {
+        @Suppress("unused")
+        const val TAG = "BoardActor"
     }
 }

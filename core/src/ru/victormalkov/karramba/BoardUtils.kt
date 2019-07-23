@@ -4,14 +4,14 @@ import com.badlogic.gdx.Gdx
 import ru.victormalkov.karramba.model.*
 import kotlin.random.Random
 
-val gemPool: Array<Gem> = Array(ORDINARY_GEM_TYPES) {OrdinaryGem("gem$it")}
+val gemPool: Array<Gem> = Array(ORDINARY_GEM_TYPES) { OrdinaryGem("gem$it") }
 
 fun readBoardFromFile(filename: String): Board {
     val TAG = "BoardUtils"
     val reader = Gdx.files.internal(filename).reader(2048) //todo move to asset manager
     val (width, height) = reader.readLine()!!.split(" ").map(String::toInt)
     val result = Board(width, height)
-    val toFill: MutableCollection<Pair<Int, Int>> = LinkedHashSet<Pair<Int, Int>>()
+    val toFill: MutableCollection<Pair<Int, Int>> = LinkedHashSet()
 
     for (y in height - 1 downTo 0) {
         val s = reader.readLine()
@@ -20,7 +20,7 @@ fun readBoardFromFile(filename: String): Board {
         }
         val items = s.trim().split("\\s+".toRegex())
         items.forEachIndexed { x, s ->
-            with (s) {
+            with(s) {
                 // 1) основной тип ячейки доски
                 when {
                     contains('.') -> {
@@ -89,21 +89,21 @@ fun readBoardFromFile(filename: String): Board {
     return result
 }
 
-fun fillEmptyCells(board: Board, toFill: Collection<Pair<Int,Int>>) {
+fun fillEmptyCells(board: Board, toFill: Collection<Pair<Int, Int>>) {
     toFill.forEach {
         val x = it.first
         val y = it.second
-        val colors = gemPool.mapTo(mutableListOf()) {it}.filter {
+        val colors = gemPool.mapTo(mutableListOf()) { it }.filter {
             // если с этим цветом составилась комбинация, забраковать цвет
-            with (board) {
+            with(board) {
                 !(
-                    (it === g(x-1,y) && it === g(x-2, y)) ||
-                            (it === g(x-1, y) && it === g(x + 1, y)) ||
-                            (it === g(x+1, y) && it === g(x + 2, y)) ||
-                            (it === g(x, y - 1) && it === g(x, y-2)) ||
-                            (it === g(x, y - 1) && it === g(x, y + 1)) ||
-                            (it === g(x, y + 1) && it === g(x, y+2))
-                )
+                        (it === g(x - 1, y) && it === g(x - 2, y)) ||
+                                (it === g(x - 1, y) && it === g(x + 1, y)) ||
+                                (it === g(x + 1, y) && it === g(x + 2, y)) ||
+                                (it === g(x, y - 1) && it === g(x, y - 2)) ||
+                                (it === g(x, y - 1) && it === g(x, y + 1)) ||
+                                (it === g(x, y + 1) && it === g(x, y + 2))
+                        )
             }
         }
 

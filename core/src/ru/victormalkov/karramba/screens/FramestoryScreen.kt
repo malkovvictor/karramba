@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button
 import ru.victormalkov.karramba.MyGame
 
 class FramestoryScreen(val game: MyGame) : ScreenAdapter() {
-    private val TAG = "FramestoryScreen"
     private val camera = OrthographicCamera()
     private var font: BitmapFont
 
@@ -34,7 +33,7 @@ class FramestoryScreen(val game: MyGame) : ScreenAdapter() {
         game.batch.end()
 
         if (Gdx.input.isTouched || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-            Gdx.app.log(TAG, "запуск игры")
+            Gdx.app.log(Companion.TAG, "запуск игры")
             game.loadLevel(2)
             game.screen = PlayScreen(game)
             dispose()
@@ -44,5 +43,9 @@ class FramestoryScreen(val game: MyGame) : ScreenAdapter() {
     override fun dispose() {
         super.dispose()
         font.dispose()
+    }
+
+    companion object {
+        const val TAG = "FramestoryScreen"
     }
 }
