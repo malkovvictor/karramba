@@ -8,6 +8,6 @@ interface CellEffect {
     fun onStack(): Boolean
     fun onNear(): Boolean
 
-    val decorator: Any // TODO return cell decorator texture
+    val tileName: String // TODO return cell tileName texture
 }
 

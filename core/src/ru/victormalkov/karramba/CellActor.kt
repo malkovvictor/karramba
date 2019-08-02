@@ -48,10 +48,10 @@ class CellActor(val myCell: Cell, val x: Int, val y: Int, val game: MyGame): Act
     override fun draw(batch: Batch?, parentAlpha: Float) {
         var tr: TextureRegion? = null
         when (myCell.effect) {
-            StaticWall -> {
-                tr = game.cellTextures["wall1"]
+            is StaticWall -> {
+                tr = game.tiles[myCell.effect!!.tileName]
             }
-            TransparentWall -> {}
+            is TransparentWall -> {}
             else -> {
                 // эффект отсутствует
                 //tr = cellTextures

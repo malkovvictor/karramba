@@ -14,8 +14,8 @@ object ProducerCell: CellEffect {
         return true
     }
 
-    override val decorator: Any
-        get() = TODO("not implemented: decorator of producer cell") //To change initializer of created properties use File | Settings | File Templates.
+    override val tileName: String
+        get() = TODO("not implemented: tileName of producer cell") //To change initializer of created properties use File | Settings | File Templates.
 
 }
 
@@ -33,7 +33,7 @@ object ConsumerCell: CellEffect {
         return true
     }
 
-    override val decorator: Any
-        get() = TODO("not implemented: decorator of consumer cell") //To change initializer of created properties use File | Settings | File Templates.
+    override val tileName: String
+        get() = TODO("not implemented: tileName of consumer cell") //To change initializer of created properties use File | Settings | File Templates.
 
 }

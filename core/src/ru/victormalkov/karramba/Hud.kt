@@ -16,7 +16,7 @@ class Hud(batch: Batch) {
 
         val table = Table()
         table.setFillParent(true)
-        stage.addActor(table)
+        //stage.addActor(table)
 
 
 

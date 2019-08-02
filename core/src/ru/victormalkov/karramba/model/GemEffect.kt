@@ -7,5 +7,5 @@ interface GemEffect {
     val movable: Boolean
         get() = true
 
-    val decorator: Any // TODO gem effect decorator
+    val decorator: Any // TODO gem effect tileName
 }

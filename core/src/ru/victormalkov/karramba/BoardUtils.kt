@@ -5,6 +5,7 @@ import ru.victormalkov.karramba.model.*
 import kotlin.random.Random
 
 val gemPool: Array<Gem> = Array(ORDINARY_GEM_TYPES) { OrdinaryGem("gem$it") }
+val wallPool = listOf(StaticWall("rpgTile159"), StaticWall("rpgTile155"), StaticWall("rpgTile156"), StaticWall("rpgTile160"))
 
 fun readBoardFromFile(filename: String): Board {
     val TAG = "BoardUtils"
@@ -28,7 +29,8 @@ fun readBoardFromFile(filename: String): Board {
                     }
                     contains('#') -> {
                         // непрозрачная стена
-                        result.cells[x][y].effect = StaticWall
+                        result.cells[x][y].effect = wallPool[Random.nextInt(wallPool.size)]
+                        println(result.cells[x][y].effect)
                     }
                     contains('o') -> {
                         // прозрачная невидимая стена

@@ -1,0 +1,1609 @@
+
+zootiles.png
+size: 2048,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+rpgTile000
+  rotate: false
+  xy: 662, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile001
+  rotate: false
+  xy: 530, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile002
+  rotate: false
+  xy: 398, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile003
+  rotate: false
+  xy: 728, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile004
+  rotate: false
+  xy: 530, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile005
+  rotate: false
+  xy: 860, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile006
+  rotate: false
+  xy: 662, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile007
+  rotate: false
+  xy: 68, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile008
+  rotate: false
+  xy: 464, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile009
+  rotate: false
+  xy: 530, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile010
+  rotate: false
+  xy: 662, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile011
+  rotate: false
+  xy: 68, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile012
+  rotate: false
+  xy: 728, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile013
+  rotate: false
+  xy: 728, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile014
+  rotate: false
+  xy: 200, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile015
+  rotate: false
+  xy: 662, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile016
+  rotate: false
+  xy: 68, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile017
+  rotate: false
+  xy: 464, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile018
+  rotate: false
+  xy: 2, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile019
+  rotate: false
+  xy: 596, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile020
+  rotate: false
+  xy: 68, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile021
+  rotate: false
+  xy: 662, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile022
+  rotate: false
+  xy: 68, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile023
+  rotate: false
+  xy: 134, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile024
+  rotate: false
+  xy: 596, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile025
+  rotate: false
+  xy: 992, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile026
+  rotate: false
+  xy: 662, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile027
+  rotate: false
+  xy: 728, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile028
+  rotate: false
+  xy: 794, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile029
+  rotate: false
+  xy: 728, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile030
+  rotate: false
+  xy: 332, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile031
+  rotate: false
+  xy: 728, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile032
+  rotate: false
+  xy: 68, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile033
+  rotate: false
+  xy: 134, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile034
+  rotate: false
+  xy: 464, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile035
+  rotate: false
+  xy: 596, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile036
+  rotate: false
+  xy: 596, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile037
+  rotate: false
+  xy: 200, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile038
+  rotate: false
+  xy: 200, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile039
+  rotate: false
+  xy: 794, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile040
+  rotate: false
+  xy: 464, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile041
+  rotate: false
+  xy: 530, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile042
+  rotate: false
+  xy: 596, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile043
+  rotate: false
+  xy: 662, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile044
+  rotate: false
+  xy: 728, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile045
+  rotate: false
+  xy: 794, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile046
+  rotate: false
+  xy: 860, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile047
+  rotate: false
+  xy: 926, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile048
+  rotate: false
+  xy: 992, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile049
+  rotate: false
+  xy: 134, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile050
+  rotate: false
+  xy: 266, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile051
+  rotate: false
+  xy: 728, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile052
+  rotate: false
+  xy: 794, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile053
+  rotate: false
+  xy: 860, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile054
+  rotate: false
+  xy: 926, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile055
+  rotate: false
+  xy: 992, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile056
+  rotate: false
+  xy: 1058, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile057
+  rotate: false
+  xy: 68, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile058
+  rotate: false
+  xy: 2, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile059
+  rotate: false
+  xy: 332, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile060
+  rotate: false
+  xy: 398, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile061
+  rotate: false
+  xy: 926, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile062
+  rotate: false
+  xy: 992, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile063
+  rotate: false
+  xy: 1058, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile064
+  rotate: false
+  xy: 1124, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile065
+  rotate: false
+  xy: 266, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile066
+  rotate: false
+  xy: 530, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile067
+  rotate: false
+  xy: 398, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile068
+  rotate: false
+  xy: 464, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile069
+  rotate: false
+  xy: 530, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile070
+  rotate: false
+  xy: 860, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile071
+  rotate: false
+  xy: 266, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile072
+  rotate: false
+  xy: 266, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile073
+  rotate: false
+  xy: 134, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile074
+  rotate: false
+  xy: 1124, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile075
+  rotate: false
+  xy: 662, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile076
+  rotate: false
+  xy: 2, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile077
+  rotate: false
+  xy: 398, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile078
+  rotate: false
+  xy: 530, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile079
+  rotate: false
+  xy: 530, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile080
+  rotate: false
+  xy: 860, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile081
+  rotate: false
+  xy: 926, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile082
+  rotate: false
+  xy: 992, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile083
+  rotate: false
+  xy: 1058, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile084
+  rotate: false
+  xy: 1124, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile085
+  rotate: false
+  xy: 1190, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile086
+  rotate: false
+  xy: 1256, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile087
+  rotate: false
+  xy: 794, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile088
+  rotate: false
+  xy: 1388, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile089
+  rotate: false
+  xy: 530, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile090
+  rotate: false
+  xy: 860, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile091
+  rotate: false
+  xy: 926, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile092
+  rotate: false
+  xy: 992, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile093
+  rotate: false
+  xy: 1058, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile094
+  rotate: false
+  xy: 1124, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile095
+  rotate: false
+  xy: 1190, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile096
+  rotate: false
+  xy: 1256, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile097
+  rotate: false
+  xy: 1322, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile098
+  rotate: false
+  xy: 464, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile099
+  rotate: false
+  xy: 530, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile100
+  rotate: false
+  xy: 464, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile101
+  rotate: false
+  xy: 2, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile102
+  rotate: false
+  xy: 68, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile103
+  rotate: false
+  xy: 134, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile104
+  rotate: false
+  xy: 200, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile105
+  rotate: false
+  xy: 464, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile106
+  rotate: false
+  xy: 332, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile107
+  rotate: false
+  xy: 398, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile108
+  rotate: false
+  xy: 464, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile109
+  rotate: false
+  xy: 530, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile110
+  rotate: false
+  xy: 332, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile111
+  rotate: false
+  xy: 200, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile112
+  rotate: false
+  xy: 464, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile113
+  rotate: false
+  xy: 530, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile114
+  rotate: false
+  xy: 596, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile115
+  rotate: false
+  xy: 2, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile116
+  rotate: false
+  xy: 68, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile117
+  rotate: false
+  xy: 266, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile118
+  rotate: false
+  xy: 200, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile119
+  rotate: false
+  xy: 266, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile120
+  rotate: false
+  xy: 596, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile121
+  rotate: false
+  xy: 68, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile122
+  rotate: false
+  xy: 2, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile123
+  rotate: false
+  xy: 794, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile124
+  rotate: false
+  xy: 134, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile125
+  rotate: false
+  xy: 200, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile126
+  rotate: false
+  xy: 266, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile127
+  rotate: false
+  xy: 332, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile128
+  rotate: false
+  xy: 398, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile129
+  rotate: false
+  xy: 794, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile130
+  rotate: false
+  xy: 728, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile131
+  rotate: false
+  xy: 2, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile132
+  rotate: false
+  xy: 134, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile133
+  rotate: false
+  xy: 1190, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile134
+  rotate: false
+  xy: 200, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile135
+  rotate: false
+  xy: 662, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile136
+  rotate: false
+  xy: 332, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile137
+  rotate: false
+  xy: 398, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile138
+  rotate: false
+  xy: 200, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile139
+  rotate: false
+  xy: 530, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile140
+  rotate: false
+  xy: 596, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile141
+  rotate: false
+  xy: 266, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile142
+  rotate: false
+  xy: 332, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile143
+  rotate: false
+  xy: 398, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile144
+  rotate: false
+  xy: 464, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile145
+  rotate: false
+  xy: 200, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile146
+  rotate: false
+  xy: 596, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile147
+  rotate: false
+  xy: 398, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile148
+  rotate: false
+  xy: 464, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile149
+  rotate: false
+  xy: 332, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile150
+  rotate: false
+  xy: 134, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile151
+  rotate: false
+  xy: 200, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile152
+  rotate: false
+  xy: 266, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile153
+  rotate: false
+  xy: 332, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile154
+  rotate: false
+  xy: 398, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile155
+  rotate: false
+  xy: 662, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile156
+  rotate: false
+  xy: 1124, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile157
+  rotate: false
+  xy: 596, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile158
+  rotate: false
+  xy: 662, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile159
+  rotate: false
+  xy: 728, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile160
+  rotate: false
+  xy: 398, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile161
+  rotate: false
+  xy: 2, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile162
+  rotate: false
+  xy: 596, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile163
+  rotate: false
+  xy: 728, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile164
+  rotate: false
+  xy: 398, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile165
+  rotate: false
+  xy: 2, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile166
+  rotate: false
+  xy: 134, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile167
+  rotate: false
+  xy: 398, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile168
+  rotate: false
+  xy: 134, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile169
+  rotate: false
+  xy: 926, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile170
+  rotate: false
+  xy: 596, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile171
+  rotate: false
+  xy: 662, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile172
+  rotate: false
+  xy: 2, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile173
+  rotate: false
+  xy: 1256, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile174
+  rotate: false
+  xy: 464, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile175
+  rotate: false
+  xy: 68, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile176
+  rotate: false
+  xy: 860, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile177
+  rotate: false
+  xy: 926, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile178
+  rotate: false
+  xy: 200, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile179
+  rotate: false
+  xy: 266, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile180
+  rotate: false
+  xy: 794, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile181
+  rotate: false
+  xy: 860, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile182
+  rotate: false
+  xy: 332, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile183
+  rotate: false
+  xy: 794, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile184
+  rotate: false
+  xy: 332, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile185
+  rotate: false
+  xy: 266, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile186
+  rotate: false
+  xy: 2, 464
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile187
+  rotate: false
+  xy: 332, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile188
+  rotate: false
+  xy: 728, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile189
+  rotate: false
+  xy: 2, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile190
+  rotate: false
+  xy: 794, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile191
+  rotate: false
+  xy: 860, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile192
+  rotate: false
+  xy: 926, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile193
+  rotate: false
+  xy: 992, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile194
+  rotate: false
+  xy: 1058, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile195
+  rotate: false
+  xy: 68, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile196
+  rotate: false
+  xy: 1190, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile197
+  rotate: false
+  xy: 332, 2
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile198
+  rotate: false
+  xy: 596, 68
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile199
+  rotate: false
+  xy: 464, 134
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile200
+  rotate: false
+  xy: 398, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile201
+  rotate: false
+  xy: 68, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile202
+  rotate: false
+  xy: 134, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile203
+  rotate: false
+  xy: 200, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile204
+  rotate: false
+  xy: 2, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile205
+  rotate: false
+  xy: 68, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile206
+  rotate: false
+  xy: 134, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile207
+  rotate: false
+  xy: 200, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile208
+  rotate: false
+  xy: 266, 926
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile209
+  rotate: false
+  xy: 2, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile210
+  rotate: false
+  xy: 266, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile211
+  rotate: false
+  xy: 134, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile212
+  rotate: false
+  xy: 2, 530
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile213
+  rotate: false
+  xy: 68, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile214
+  rotate: false
+  xy: 134, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile215
+  rotate: false
+  xy: 200, 728
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile216
+  rotate: false
+  xy: 266, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile217
+  rotate: false
+  xy: 332, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile218
+  rotate: false
+  xy: 1322, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile219
+  rotate: false
+  xy: 530, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile220
+  rotate: false
+  xy: 398, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile221
+  rotate: false
+  xy: 332, 200
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile222
+  rotate: false
+  xy: 530, 794
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile223
+  rotate: false
+  xy: 662, 860
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile224
+  rotate: false
+  xy: 464, 332
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile225
+  rotate: false
+  xy: 134, 398
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile226
+  rotate: false
+  xy: 266, 662
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile227
+  rotate: false
+  xy: 1058, 596
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+rpgTile228
+  rotate: false
+  xy: 596, 266
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
