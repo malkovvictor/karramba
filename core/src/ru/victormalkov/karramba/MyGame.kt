@@ -13,7 +13,8 @@ import ru.victormalkov.karramba.model.Wall
 import ru.victormalkov.karramba.screens.LoadingScreen
 import kotlin.math.abs
 
-const val GEM_SIZE = 24f
+//const val GEM_SIZE = 24f
+const val GEM_SIZE = 38f
 const val ORDINARY_GEM_TYPES = 5
 
 const val SCORE3 = 1 // * gem count
@@ -57,6 +58,7 @@ class MyGame : Game() {
         assetManager.get("karramba.atlas", TextureAtlas::class.java).regions.forEach {
             cellTextures[it.name] = it
         }
+        println (cellTextures["gem0"]?.regionHeight)
         font = BitmapFont()
     }
 
@@ -89,26 +91,7 @@ class MyGame : Game() {
         if (board!!.processMove(source.x, source.y, dest.x, dest.y)) {
             movesCount++
             phase = Phase.REMOVE_MATCHES
-
-/*            var smth: Boolean
-            do {
-                var removeList = board!!.removeMatches()
-                smth = removeList.isNotEmpty()
-                var smth2: Boolean
-                do {
-                    smth2 = false
-                    while (board!!.fall()) {
-                        smth = true
-                        smth2 = true
-                    }
-                    if (board!!.produce()) {
-                        smth = true
-                        smth2 = true
-                    }
-                } while (smth2)
-            } while (smth)   */
         }
-
     }
 }
 

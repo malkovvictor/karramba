@@ -48,10 +48,6 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
         game.currentScore = 0
     }
 
-    override fun show() {
-    //    Gdx.input.inputProcessor = stage
-    }
-
     override fun render(delta: Float) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         stage.act(delta)
