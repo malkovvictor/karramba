@@ -7,19 +7,16 @@ import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.*
-import ru.victormalkov.karramba.model.Board
-import ru.victormalkov.karramba.model.Cell
-import ru.victormalkov.karramba.model.StaticWall
-import ru.victormalkov.karramba.model.Wall
+import ru.victormalkov.karramba.model.*
 import ru.victormalkov.karramba.screens.LoadingScreen
 import kotlin.math.abs
 
 //const val GEM_SIZE = 24f
-var GEM_SIZE = 64f
-const val ORDINARY_GEM_TYPES = 5
+const val GEM_SIZE = 128f
+const val ORDINARY_GEM_TYPES = 10
+const val MAX_BOARD_GEM_COLORS = 5
 
-const val ATLAS_NAME = "zoo3"
-const val TILES_ATLAS_NAME = "zootiles"
+const val ATLAS_NAME = "zoo"
 
 const val SCORE3 = 1 // * gem count
 const val SCORE4 = 1.5 // * gem count
@@ -32,7 +29,7 @@ class MyGame : Game() {
     lateinit var batch: Batch private set
     var board: Board? = null
     val cellTextures: MutableMap<String, TextureRegion> = HashMap()
-    val tiles: MutableMap<String, TextureRegion> = HashMap()
+//    val tiles: MutableMap<String, TextureRegion> = HashMap()
     lateinit var font: BitmapFont
 
     var phase = Phase.USER_WAIT
@@ -56,8 +53,8 @@ class MyGame : Game() {
     private fun loadAssets() {
         assetManager.load("$ATLAS_NAME.png", Texture::class.java)
         assetManager.load("$ATLAS_NAME.atlas", TextureAtlas::class.java)
-        assetManager.load("$TILES_ATLAS_NAME.png", Texture::class.java)
-        assetManager.load("$TILES_ATLAS_NAME.atlas", TextureAtlas::class.java)
+        //assetManager.load("$TILES_ATLAS_NAME.png", Texture::class.java)
+        //assetManager.load("$TILES_ATLAS_NAME.atlas", TextureAtlas::class.java)
         assetManager.load("Blackmoor_Tides_Loop.ogg", Music::class.java)
     }
 
@@ -65,9 +62,9 @@ class MyGame : Game() {
         assetManager.get("$ATLAS_NAME.atlas", TextureAtlas::class.java).regions.forEach {
             cellTextures[it.name] = it
         }
-        assetManager.get("$TILES_ATLAS_NAME.atlas", TextureAtlas::class.java).regions.forEach {
+/*        assetManager.get("$TILES_ATLAS_NAME.atlas", TextureAtlas::class.java).regions.forEach {
             tiles[it.name] = it
-        }
+        }*/
         println (cellTextures["gem0"]?.regionHeight)
 //        GEM_SIZE = cellTextures["gem0"]!!.regionHeight.toFloat()
         font = BitmapFont()
@@ -88,7 +85,7 @@ class MyGame : Game() {
     }
 
     fun loadLevel(n: Int) {
-        board = readBoardFromFile("level$n")
+        board = readBoardFromFile("levels/level$n")
         movesCount = 0
         currentScore = 0
     }

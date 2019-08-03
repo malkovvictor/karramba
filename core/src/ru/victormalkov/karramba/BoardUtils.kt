@@ -5,7 +5,21 @@ import ru.victormalkov.karramba.model.*
 import kotlin.random.Random
 
 val gemPool: Array<Gem> = Array(ORDINARY_GEM_TYPES) { OrdinaryGem("gem$it") }
-val wallPool = listOf(StaticWall("rpgTile159"), StaticWall("rpgTile155"), StaticWall("rpgTile156"), StaticWall("rpgTile160"))
+val wallPool = listOf(StaticWall("rpgTile159"), StaticWall("rpgTile155"), StaticWall("rpgTile156"), StaticWall("rpgTile160"),
+        StaticWall("rpgTile197", "rpgTile177"), StaticWall("rpgTile195", "rpgTile175"),
+        StaticWall("rpgTile198", "rpgTile178"),
+        StaticWall("rpgTile196", "rpgTile176"))
+
+const val TILE_BOTTOM_LEFT = "rpgTile036"
+const val TILE_BOTTOM = "rpgTile037"
+const val TILE_BOTTOM_RIGHT = "rpgTile038"
+const val TILE_LEFT = "rpgTile018"
+const val TILE_RIGHT = "rpgTile020"
+const val TILE_TOP_LEFT = "rpgTile000"
+const val TILE_TOP = "rpgTile001"
+const val TILE_TOP_RIGHT = "rpgTile002"
+const val TILE_NORMAL = "rpgTile019"
+
 
 fun readBoardFromFile(filename: String): Board {
     val TAG = "BoardUtils"
@@ -75,6 +89,21 @@ fun readBoardFromFile(filename: String): Board {
                     contains('4') -> {
                         result.cells[x][y].gem = gemPool[4]
                     }
+                    contains('5') -> {
+                        result.cells[x][y].gem = gemPool[5]
+                    }
+                    contains('6') -> {
+                        result.cells[x][y].gem = gemPool[6]
+                    }
+                    contains('7') -> {
+                        result.cells[x][y].gem = gemPool[7]
+                    }
+                    contains('8') -> {
+                        result.cells[x][y].gem = gemPool[8]
+                    }
+                    contains('9') -> {
+                        result.cells[x][y].gem = gemPool[9]
+                    }
                     contains('e') -> {
                         // ячейка при создании должна быть пустой
                     }
@@ -82,6 +111,9 @@ fun readBoardFromFile(filename: String): Board {
                         // добавить в список на заполнение
                         toFill.add(Pair(x, y))
                     }
+                }
+                if (result.cells[x][y].gem != null) {
+                    result.possibleGemColors.add(result.cells[x][y].gem!!)
                 }
             }
         }
@@ -92,10 +124,13 @@ fun readBoardFromFile(filename: String): Board {
 }
 
 fun fillEmptyCells(board: Board, toFill: Collection<Pair<Int, Int>>) {
+    while (board.possibleGemColors.size < MAX_BOARD_GEM_COLORS) {
+        board.possibleGemColors.add(gemPool[Random.nextInt(gemPool.size)])
+    }
     toFill.forEach {
         val x = it.first
         val y = it.second
-        val colors = gemPool.mapTo(mutableListOf()) { it }.filter {
+        val colors = board.possibleGemColors.mapTo(mutableListOf()) { it }.filter {
             // если с этим цветом составилась комбинация, забраковать цвет
             with(board) {
                 !(

@@ -18,9 +18,11 @@ abstract class Wall: CellEffect {
 
 
 // просто неподвижная непрозрачная стена
-class StaticWall(val tile: String): Wall() {
+class StaticWall(val tile: String, val tile2: String? = null): Wall() {
     override val tileName: String
         get() = tile
+    val tileName2: String?
+        get() = tile2
 }
 
 

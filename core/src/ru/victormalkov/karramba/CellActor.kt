@@ -46,26 +46,40 @@ class CellActor(val myCell: Cell, val x: Int, val y: Int, val game: MyGame): Act
     }
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
-        var tr: TextureRegion? = null
         when (myCell.effect) {
             is StaticWall -> {
-                tr = game.tiles[myCell.effect!!.tileName]
+                var e = myCell.effect as StaticWall
+                var tr = game.cellTextures[e.tileName]
+                var tr2: TextureRegion? = null
+                if (e.tileName2 != null) {
+                    tr2 = game.cellTextures[e.tileName2!!]
+                }
+
+                if (tr2 == null) {
+                    var dx = (GEM_SIZE - (tr?.regionWidth ?: 0)) / 2
+                    var dy = (GEM_SIZE - (tr?.regionHeight ?: 0)) / 2
+                    batch!!.draw(tr, getX() + dx, getY() + dy)
+                } else {
+                    var dx = (GEM_SIZE - (tr?.regionWidth ?: 0)) / 2
+                    batch!!.draw(tr, getX() + dx, getY())
+                    batch!!.draw(tr2, getX() + dx, getY() + (tr?.regionHeight ?: 0))
+                }
             }
             is TransparentWall -> {}
             else -> {
                 // эффект отсутствует
-                //tr = cellTextures
+                var tr: TextureRegion? = null
                 if (myCell.gem != null) {
                     tr = game.cellTextures[myCell.gem!!.name]
                 } else {
                     //tr = cellTextures["gem0"]
                 }
-            }
-        }
-        if (tr != null) {
-            var s = stage as GameStage
-            if (s.eventList.find { it is FallEvent && it.dest.first == x && it.dest.second == y} == null) {
-                batch!!.draw(tr, getX(), getY())
+                if (tr != null) {
+                    var s = stage as GameStage
+                    if (s.eventList.find { it is FallEvent && it.dest.first == x && it.dest.second == y} == null) {
+                        batch!!.draw(tr, getX(), getY())
+                    }
+                }
             }
         }
     }

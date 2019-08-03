@@ -20,8 +20,8 @@ class FramestoryScreen(val game: MyGame) : ScreenAdapter() {
     }
 
     override fun render(delta: Float) {
-        Gdx.gl.glClearColor(0f, 0f, 0.2f, 1f);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClearColor(0f, 0f, 0.2f, 1f)
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         camera.update()
 
         game.batch.projectionMatrix = camera.combined
@@ -34,7 +34,7 @@ class FramestoryScreen(val game: MyGame) : ScreenAdapter() {
 
         if (Gdx.input.isTouched || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
             Gdx.app.log(TAG, "запуск игры")
-            game.loadLevel(3)
+            game.loadLevel(1)
             game.screen = PlayScreen(game)
             dispose()
         }

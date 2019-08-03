@@ -1,16 +1,17 @@
 package ru.victormalkov.karramba.model
 
 import com.badlogic.gdx.Gdx
-import kotlinx.serialization.Serializable
-import ru.victormalkov.karramba.gemPool
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
+import kotlin.collections.HashSet
 import kotlin.math.abs
 import kotlin.random.Random
 
-@Serializable
 class Board(val width: Int, val height: Int) {
+    var possibleGemColors: MutableSet<Gem> = HashSet()
+    private var arrGemColors: Array<Gem>? = null
+
     internal val cells: Array<Array<Cell>> = Array(width) { Array(height) { Cell() } }
 
     fun c(x: Int, y: Int): Cell? {
@@ -32,14 +33,14 @@ class Board(val width: Int, val height: Int) {
 
     // заполнить все производящие ячейки камнями случайного цвета
     fun produce(): Boolean {
+        if (arrGemColors == null) {
+            arrGemColors = possibleGemColors.toTypedArray()
+        }
         var produced = false
         for (x in 0 until width) {
             for (y in 0 until height) {
-                val gg = g(x, y)
-                val cc = c(x, y)
-
                 if (g(x, y) == null && c(x, y)!!.producer) {
-                    c(x, y)!!.gem = gemPool[Random.nextInt(gemPool.size)]
+                    c(x, y)!!.gem = arrGemColors!![Random.nextInt(possibleGemColors.size)]
                     Gdx.app.debug(Companion.TAG, "produced in cell ($x, $y)")
                     produced = true
                 }
