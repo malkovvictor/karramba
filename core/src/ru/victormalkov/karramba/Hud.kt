@@ -17,6 +17,7 @@ class Hud(val game: MyGame) {
     var background: TiledDrawable
     var scoreLabel: Label
     var levelLabel: Label
+    var movesLabel: Label
 
 
     init {
@@ -25,6 +26,7 @@ class Hud(val game: MyGame) {
 
         val table = Table()
         table.setFillParent(true)
+        table.top().left()
 
 
         //val hg = HorizontalGroup()
@@ -33,14 +35,17 @@ class Hud(val game: MyGame) {
 
         val labelStyle = Label.LabelStyle()
         labelStyle.font = game.assetManager.get("font1.ttf", BitmapFont::class.java)
-        scoreLabel = Label("0", labelStyle)
-        scoreLabel.setAlignment(Align.topLeft)
-        scoreLabel.width = viewport.worldWidth
-        table.add(scoreLabel)
+
 
         levelLabel = Label(game.levelName, labelStyle)
-        levelLabel.setAlignment(Align.topRight)
         table.add(levelLabel)
+
+        scoreLabel = Label("0", labelStyle)
+        scoreLabel.setAlignment(Align.center)
+        table.add(scoreLabel).expandX()
+
+        movesLabel = Label(game.movesCount.toString(), labelStyle)
+        table.add(movesLabel)
 
         stage.addActor(table)
         //stage.addActor(scoreLabel)
@@ -48,7 +53,7 @@ class Hud(val game: MyGame) {
 
 
         background = TiledDrawable(game.cellTextures[TILE_BACKGROUND])
-        //table.debug = true
+       // table.debug = true
     }
 
     fun dispose() {
@@ -59,7 +64,8 @@ class Hud(val game: MyGame) {
         stage.batch.begin()
         background.draw(stage.batch, 0f, 0f, viewport.worldWidth, viewport.worldHeight)
         stage.batch.end()
-        scoreLabel.setText(game.currentScore)
+        scoreLabel.setText("${game.currentScore} ☆")
+        movesLabel.setText("Ходов: ${game.movesCount}")
         stage.draw()
     }
 }

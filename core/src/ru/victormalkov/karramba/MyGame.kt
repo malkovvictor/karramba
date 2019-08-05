@@ -37,7 +37,7 @@ class MyGame : Game() {
         private set
     var currentScore = 0
     var movesCount = 0
-    var levelName = "1"
+    var levelName = "level 1"
 
     fun getWorldWidth() : Float =
         if (board == null) 0f
@@ -60,7 +60,7 @@ class MyGame : Game() {
         //assetManager.load("$TILES_ATLAS_NAME.atlas", TextureAtlas::class.java)
         assetManager.load(MUSIC, Music::class.java)
 
-        val params = FreeTypeFontLoaderParameter()
+        var params = FreeTypeFontLoaderParameter()
         params.fontFileName = SCORE_FONT
         params.fontParameters.size = 48
         params.fontParameters.characters = FONT_CHARS
@@ -68,6 +68,15 @@ class MyGame : Game() {
         params.fontParameters.borderColor = Color.BLACK
         params.fontParameters.borderWidth = 3f
         assetManager.load("font1.ttf", BitmapFont::class.java, params)
+
+        params = FreeTypeFontLoaderParameter()
+        params.fontFileName = SCORE_FONT
+        params.fontParameters.size = 48
+        params.fontParameters.characters = "0123456789"
+        params.fontParameters.color = Color.YELLOW
+        params.fontParameters.borderColor = Color.BLACK
+        params.fontParameters.borderWidth = 3f
+        assetManager.load("scoreOnBoard.ttf", BitmapFont::class.java, params)
     }
 
     fun finishLoading() {
@@ -100,7 +109,7 @@ class MyGame : Game() {
         board = readBoardFromFile("levels/level$n")
         movesCount = 0
         currentScore = 0
-        levelName = n.toString()
+        levelName = "Level $n"
     }
 
     override fun resume() {

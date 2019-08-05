@@ -11,15 +11,19 @@ const val ATLAS_NAME = "zoo"
 const val MUSIC = "Woodland Fantasy_0.mp3"
 const val SOUND = "jingles_PIZZA00.ogg"
 const val SCORE_FONT = "Roboto-BoldItalic.ttf"
-
 const val FONT_CHARS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;:,{}\"´`'<>"
 
 const val SCORE3 = 1 // * gem count
 const val SCORE4 = 1.5 // * gem count
 const val SCORE5 = 2 // * gem count
 
-val wallPool = listOf(StaticWall("rpgTile159"), StaticWall("rpgTile155"), StaticWall("rpgTile156"), StaticWall("rpgTile160"),
-        StaticWall("rpgTile197", "rpgTile177"), StaticWall("rpgTile195", "rpgTile175"),
+val wallPool = listOf(
+        StaticWall("rpgTile159"),
+        StaticWall("rpgTile155"),
+        StaticWall("rpgTile156"),
+        StaticWall("rpgTile160"),
+        StaticWall("rpgTile197", "rpgTile177"),
+        StaticWall("rpgTile195", "rpgTile175"),
         StaticWall("rpgTile198", "rpgTile178"),
         StaticWall("rpgTile196", "rpgTile176"))
 
