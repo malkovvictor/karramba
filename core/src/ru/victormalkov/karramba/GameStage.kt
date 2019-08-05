@@ -87,7 +87,13 @@ class GameStage(viewport: Viewport, val game: MyGame) : Stage(viewport, game.bat
                 iterator.remove()
             }
         }
+    }
 
+    override fun draw() {
+        super.draw()
+        if (game.phase != Phase.USER_WAIT) {
+            Gdx.graphics.requestRendering()
+        }
     }
 
     private fun addEvent(event: BoardEvent) {

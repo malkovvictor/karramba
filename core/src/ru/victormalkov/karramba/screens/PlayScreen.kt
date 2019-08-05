@@ -2,11 +2,11 @@ package ru.victormalkov.karramba.screens
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.ScreenAdapter
+import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.scenes.scene2d.Group
 import com.badlogic.gdx.scenes.scene2d.Touchable
 import com.badlogic.gdx.utils.viewport.FitViewport
-import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 import ru.victormalkov.karramba.*
 
@@ -14,7 +14,9 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
     private var gameViewport: Viewport
 
     private var stage: GameStage
+//    private var backStage: Stage
     private val hud: Hud
+  //  private var background: TiledDrawable
 
     init {
         if (game.board == null) {
@@ -22,7 +24,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
         }
 
         gameViewport = FitViewport(game.getWorldWidth(), game.getWorldHeight())
-        hud = Hud(game.batch)
+        hud = Hud(game)
         stage = GameStage(gameViewport, game)
         Gdx.input.inputProcessor = stage
         val bg = Group()
@@ -46,6 +48,13 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
             }
         }
         game.currentScore = 0
+
+        game.music = game.assetManager.get(MUSIC, Music::class.java)
+        game.music?.isLooping = true
+        //game.music?.play()
+
+        Gdx.graphics.isContinuousRendering = false
+        Gdx.graphics.requestRendering()
     }
 
     override fun render(delta: Float) {
@@ -53,16 +62,17 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
         stage.act(delta)
         hud.stage.act(delta)
 
+      //  game.batch.begin()
+      //  background.draw(game.batch, 0f, 0f, Gdx.graphics.width.toFloat(), Gdx.graphics.height.toFloat())
+      //  game.batch.end()
+        hud.stage.viewport.apply(true)
+        hud.draw()
         gameViewport.apply(true)
         stage.draw()
-        hud.stage.viewport.apply()
-        hud.stage.draw()
-
     }
 
     override fun resize(width: Int, height: Int) {
         gameViewport.update(width, height, true)
-
         hud.stage.viewport.update(width, height, true)
     }
 

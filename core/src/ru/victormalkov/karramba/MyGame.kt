@@ -4,23 +4,19 @@ import com.badlogic.gdx.Application
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.assets.AssetManager
+import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver
 import com.badlogic.gdx.audio.Music
+import com.badlogic.gdx.audio.Sound
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.*
 import ru.victormalkov.karramba.model.*
 import ru.victormalkov.karramba.screens.LoadingScreen
-import kotlin.math.abs
-
-//const val GEM_SIZE = 24f
-const val GEM_SIZE = 128f
-const val ORDINARY_GEM_TYPES = 10
-const val MAX_BOARD_GEM_COLORS = 5
-
-const val ATLAS_NAME = "zoo"
-
-const val SCORE3 = 1 // * gem count
-const val SCORE4 = 1.5 // * gem count
-const val SCORE5 = 2 // * gem count
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader
+import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader
+import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader.FreeTypeFontLoaderParameter
+import com.badlogic.gdx.graphics.g2d.BitmapFont
 
 class MyGame : Game() {
     val TAG = "MyGame"
@@ -31,6 +27,7 @@ class MyGame : Game() {
     val cellTextures: MutableMap<String, TextureRegion> = HashMap()
 //    val tiles: MutableMap<String, TextureRegion> = HashMap()
     lateinit var font: BitmapFont
+    var music: Music? = null
 
     var phase = Phase.USER_WAIT
 
@@ -40,6 +37,7 @@ class MyGame : Game() {
         private set
     var currentScore = 0
     var movesCount = 0
+    var levelName = "1"
 
     fun getWorldWidth() : Float =
         if (board == null) 0f
@@ -51,11 +49,25 @@ class MyGame : Game() {
 
 
     private fun loadAssets() {
+//        assetManager.setLoader(FreeTypeFontGenerator::class.java, FreeTypeFontGeneratorLoader(InternalFileHandleResolver()))
+        val resolver = InternalFileHandleResolver()
+        assetManager.setLoader(FreeTypeFontGenerator::class.java, FreeTypeFontGeneratorLoader(resolver))
+        assetManager.setLoader(BitmapFont::class.java, ".ttf", FreetypeFontLoader(resolver))
         assetManager.load("$ATLAS_NAME.png", Texture::class.java)
         assetManager.load("$ATLAS_NAME.atlas", TextureAtlas::class.java)
+        assetManager.load(SOUND, Sound::class.java)
         //assetManager.load("$TILES_ATLAS_NAME.png", Texture::class.java)
         //assetManager.load("$TILES_ATLAS_NAME.atlas", TextureAtlas::class.java)
-        assetManager.load("Blackmoor_Tides_Loop.ogg", Music::class.java)
+        assetManager.load(MUSIC, Music::class.java)
+
+        val params = FreeTypeFontLoaderParameter()
+        params.fontFileName = SCORE_FONT
+        params.fontParameters.size = 48
+        params.fontParameters.characters = FONT_CHARS
+        params.fontParameters.color = Color.YELLOW
+        params.fontParameters.borderColor = Color.BLACK
+        params.fontParameters.borderWidth = 3f
+        assetManager.load("font1.ttf", BitmapFont::class.java, params)
     }
 
     fun finishLoading() {
@@ -65,7 +77,7 @@ class MyGame : Game() {
 /*        assetManager.get("$TILES_ATLAS_NAME.atlas", TextureAtlas::class.java).regions.forEach {
             tiles[it.name] = it
         }*/
-        println (cellTextures["gem0"]?.regionHeight)
+        //println (cellTextures["gem0"]?.regionHeight)
 //        GEM_SIZE = cellTextures["gem0"]!!.regionHeight.toFloat()
         font = BitmapFont()
     }
@@ -88,6 +100,7 @@ class MyGame : Game() {
         board = readBoardFromFile("levels/level$n")
         movesCount = 0
         currentScore = 0
+        levelName = n.toString()
     }
 
     override fun resume() {
