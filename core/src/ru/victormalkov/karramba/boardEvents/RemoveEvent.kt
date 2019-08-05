@@ -1,9 +1,11 @@
 package ru.victormalkov.karramba.boardEvents
 
+import com.badlogic.gdx.audio.Sound
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.g2d.Sprite
 import ru.victormalkov.karramba.GEM_SIZE
 import ru.victormalkov.karramba.MyGame
+import ru.victormalkov.karramba.SOUND
 import ru.victormalkov.karramba.model.Gem
 
 class RemoveEvent(game: MyGame, val xx: Int, val yy: Int, private val gem: Gem) : BoardEvent(game) {
@@ -12,6 +14,7 @@ class RemoveEvent(game: MyGame, val xx: Int, val yy: Int, private val gem: Gem) 
     init {
         me.x = xx * GEM_SIZE
         me.y = yy * GEM_SIZE
+        game.assetManager.get(SOUND, Sound::class.java).play()
     }
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
