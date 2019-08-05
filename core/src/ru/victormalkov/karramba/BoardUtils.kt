@@ -5,21 +5,6 @@ import ru.victormalkov.karramba.model.*
 import kotlin.random.Random
 
 val gemPool: Array<Gem> = Array(ORDINARY_GEM_TYPES) { OrdinaryGem("gem$it") }
-val wallPool = listOf(StaticWall("rpgTile159"), StaticWall("rpgTile155"), StaticWall("rpgTile156"), StaticWall("rpgTile160"),
-        StaticWall("rpgTile197", "rpgTile177"), StaticWall("rpgTile195", "rpgTile175"),
-        StaticWall("rpgTile198", "rpgTile178"),
-        StaticWall("rpgTile196", "rpgTile176"))
-
-const val TILE_BOTTOM_LEFT = "rpgTile036"
-const val TILE_BOTTOM = "rpgTile037"
-const val TILE_BOTTOM_RIGHT = "rpgTile038"
-const val TILE_LEFT = "rpgTile018"
-const val TILE_RIGHT = "rpgTile020"
-const val TILE_TOP_LEFT = "rpgTile000"
-const val TILE_TOP = "rpgTile001"
-const val TILE_TOP_RIGHT = "rpgTile002"
-const val TILE_NORMAL = "rpgTile019"
-
 
 fun readBoardFromFile(filename: String): Board {
     val TAG = "BoardUtils"
