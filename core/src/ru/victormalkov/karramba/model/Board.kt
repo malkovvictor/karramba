@@ -106,6 +106,7 @@ class Board(val width: Int, val height: Int) {
                 c(x, y)!!.effect?.movable != false
     }
 
+    // проверка что три указанных камня образуют три в ряд
     private fun test(x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int): Boolean {
         val g1 = g(x1, y1)
         val g2 = g(x2, y2)
@@ -183,6 +184,10 @@ class Board(val width: Int, val height: Int) {
         return true
     }
 
+    /*
+    удалить все комбинации
+    возвращает список удалённых камней
+     */
     fun removeMatches(): List<Triple<Int, Int, Gem>> {
         val removeList = ArrayList<Triple<Int, Int, Gem>>()
         for (x in 0 until width) {
@@ -213,6 +218,9 @@ class Board(val width: Int, val height: Int) {
         return distRemoveList
     }
 
+    /*
+    по списку удалённых камней найти компоненты связности
+     */
     fun findComponents(list: List<Triple<Int, Int, Gem>>) : List<List<Triple<Int, Int, Gem>>> {
         val result = ArrayList<List<Triple<Int, Int, Gem>>>()
         val map = HashMap<Triple<Int, Int, Gem>, Boolean>()
