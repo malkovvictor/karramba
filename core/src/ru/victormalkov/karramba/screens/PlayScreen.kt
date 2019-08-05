@@ -51,7 +51,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
 
         game.music = game.assetManager.get(MUSIC, Music::class.java)
         game.music?.isLooping = true
-        //game.music?.play()
+        game.music?.play()
 
         Gdx.graphics.isContinuousRendering = false
         Gdx.graphics.requestRendering()
