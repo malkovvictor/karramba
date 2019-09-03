@@ -38,6 +38,7 @@ class MyGame : Game() {
     var currentScore = 0
     var movesCount = 0
     var levelName = "level 1"
+    var levelCount: Int = 0
 
     fun getWorldWidth() : Float =
         if (board == null) 0f
@@ -77,6 +78,8 @@ class MyGame : Game() {
         params.fontParameters.borderColor = Color.BLACK
         params.fontParameters.borderWidth = 3f
         assetManager.load("scoreOnBoard.ttf", BitmapFont::class.java, params)
+
+        levelCount = loadLevelCount()
     }
 
     fun finishLoading() {
@@ -110,6 +113,12 @@ class MyGame : Game() {
         movesCount = 0
         currentScore = 0
         levelName = "Level $n"
+    }
+
+    private fun loadLevelCount(): Int {
+        var r = Gdx.files.internal("levels").list().size
+        Gdx.app.debug(TAG, "Level count: $r")
+        return r
     }
 
     override fun resume() {
