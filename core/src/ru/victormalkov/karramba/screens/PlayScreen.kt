@@ -1,6 +1,7 @@
 package ru.victormalkov.karramba.screens
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.Input
 import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.GL20
@@ -27,6 +28,7 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
         hud = Hud(game)
         stage = GameStage(gameViewport, game)
         Gdx.input.inputProcessor = stage
+        Gdx.input.setCatchKey(Input.Keys.BACK, true)
         val bg = Group()
         val fg = Group()
 
@@ -69,6 +71,11 @@ class PlayScreen(val game: MyGame) : ScreenAdapter() {
         hud.draw()
         gameViewport.apply(true)
         stage.draw()
+
+        if (Gdx.input.isKeyPressed(Input.Keys.BACK)) {
+            game.screen = FramestoryScreen(game)
+            dispose()
+        }
     }
 
     override fun resize(width: Int, height: Int) {
