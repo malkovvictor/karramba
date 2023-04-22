@@ -77,6 +77,8 @@ class GameStage(viewport: Viewport, val game: MyGame) : Stage(viewport, game.bat
                     }
                 }
             }
+
+            Phase.USER_WAIT -> { /*nothing */ }
         }
 
         val iterator = eventList.iterator()
